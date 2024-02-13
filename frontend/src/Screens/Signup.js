@@ -16,7 +16,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://foodiii.onrender.com/creatuser", {
+    const response = await fetch("https://foodiii.onrender.com/api/creatuser", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

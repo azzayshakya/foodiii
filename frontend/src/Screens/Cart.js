@@ -22,7 +22,7 @@ const Cart = () => {
     const handleCheckOut = async () => {
       let userEmail = localStorage.getItem("userEmail");
       
-      let response = await fetch("https://foodiii.onrender.com/orderData", {
+      let response = await fetch("https://foodiii.onrender.com/api/orderData", {
    
         method: 'POST',
         headers: {

@@ -20,7 +20,7 @@ const Foodcards = () => {
 
 
     const loadData = async () => {
-        let response = await fetch("https://foodiii.onrender.com/foodData", {
+        let response = await fetch("https://foodiii.onrender.com/api/foodData", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

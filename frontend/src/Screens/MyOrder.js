@@ -14,7 +14,7 @@ const MyOrder = ({orderId, newState }) => {
             // console.log("Received New State:", newState);
             // ... (rest of the code)
             try {
-                const response = await fetch("https://foodiii.onrender.com/myOrderData", {
+                const response = await fetch("https://foodiii.onrender.com/api/myOrderData", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
