@@ -28,7 +28,7 @@ const RestOrder = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let response = await fetch("http://localhost:7000/api/getOrderOfMyresturant", {
+      let response = await fetch("https://foodiii.onrender.com/getOrderOfMyresturant", {
         method: "GET"
       });
 

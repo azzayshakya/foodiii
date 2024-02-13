@@ -10,7 +10,7 @@ const YourOrder = () => {
         // console.log(email);
 
         const fetchData =async()=>{
-            let response= await fetch("http://localhost:7000/api/yourorders",{
+            let response= await fetch("https://foodiii.onrender.com/yourorders",{
                 method:"GET"
             })
             response=await response.json();
