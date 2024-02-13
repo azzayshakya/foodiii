@@ -28,6 +28,8 @@
 
 
   .login_form_container{
+    /* border: 2px red solid; */
+   
       position: relative;
       width: 400px;
       height: 470px;
@@ -41,6 +43,7 @@
       justify-content: center;
       overflow: hidden;
       margin-top: 70px;
+      
   }
   .login_form_container::before{
       

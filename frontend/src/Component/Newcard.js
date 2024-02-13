@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatchCart, useCart } from '../Component/ContextReducer';
+import css from '../Css/Foodcards.css'
+
 const propTypes = {};
 
 const Newcard = (props) => {

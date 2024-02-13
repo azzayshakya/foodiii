@@ -19,7 +19,7 @@ const SingleOrder = ({  items, selectedOrderState }) => {
                             
                             return <li className='mainonecard' key={index}>
                                 <div className='innerpart'>                           
-                                    <p> <img style={{ width: '100%', height: '190px', borderRadius: '5px' }} src={item.img} alt="hey it's your image" /></p>
+                                    <p style={{textAlign:"center"}}> <img style={{width: '300px', height: '200px', borderRadius: '52px' }} src={item.img} alt="hey it's your image" /></p>
                                     <p>  Name:{item.name}</p>
                                     <p>  Price:{item.price}</p>
                                     <p>  Qty:{item.qty}</p>
@@ -28,8 +28,8 @@ const SingleOrder = ({  items, selectedOrderState }) => {
 
                                     {selectedOrderState && (
                                             <div>
-                                                <p>Selected Order ID: {selectedOrderState.orderId}</p>
-                                                <p>New State: {selectedOrderState.newState}</p>
+                                                {/* <p>Selected Order ID: {selectedOrderState.orderId}</p>
+                                                <p>New State: {selectedOrderState.newState}</p> */}
                                             </div>
                                         )}
                                         

@@ -119,7 +119,7 @@ li{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: rgba( 255, 255, 255, 0.25 );
+    background: rgba( 255, 255, 255, 0.4);
 backdrop-filter:blur(10px) ;
         height: 50px;
     width: 750px;

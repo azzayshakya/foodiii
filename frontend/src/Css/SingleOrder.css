@@ -81,13 +81,18 @@
     border: 2px   blue solid;
 } */
 .mainonecard{
-    border: 2px rgb(213, 213, 213) solid;
+    border-radius: 52px;
+    /* border: 2px rgb(213, 213, 213) solid; */
+    /* border: 2px black solid; */
+    
     margin: 20px;
-    max-width:340px ;
-    max-height: 500px;
+    width:340px ;
+    height: 500px;
     /* border: 2px red solid; */
     background-color: white;
     /* border: 2px blue solid; */
+    background: rgba( 255, 255, 255, 0.4);
+   backdrop-filter:blur(10px) ;
 
    
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -109,13 +114,18 @@
 
 .mainonecard p{
     /* border: 2px red solid; */
-    width: 280px;
+
+
+    /* bahi par css hai jaha elemnet hai  */
     font-size: 20px;
-    
-    /* text-align: center; */
+    text-align: center;
     
 }
-
+.mainonecard img{
+    /* border: 2px red solid;
+    border-radius: 52px;
+    z-index: 200; */
+}
 .orderpagemaincontainer{
     display: flex;
     margin: 5px 0px;
@@ -143,3 +153,5 @@
     /* border: 2px blue solid; */
 
 }
+
+

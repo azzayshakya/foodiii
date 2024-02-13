@@ -114,16 +114,13 @@ const Signup = () => {
 
             />
           </div>
-          <div className="button_group" onClick={handleSubmit} id="login_button">
+          <div className="button_group signupbutton" onClick={handleSubmit} id="login_button">
             <a>Submit</a>
           </div>
-          <div className="button_group2" id="login_button2">
+          {/* <div className="button_group2 Alreadyauserinsignup " id="login_button2">
             <a><Link to="/login">Already a user</Link></a>
-          </div>
-          {/* <div className="fotter">
-          <a>Forgot Password ?</a>
-          <a>SingUp</a>
-        </div> */}
+          </div> */}
+  
         </div>
       </div>
     </div>

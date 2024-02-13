@@ -9,7 +9,7 @@ const ConnectDb=async ()=>{
         const conn=await mongoose.connect(process.env.db_string,
         {useUnifiedTopology:true})
        
-        console.log("connented")
+        console.log("connected to the mongoDB ajju")
 
 
 const fetchFoodItems = async () => {

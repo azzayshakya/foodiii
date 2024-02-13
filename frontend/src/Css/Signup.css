@@ -1,7 +1,7 @@
 .sign_up_form_main_container{
     position: relative;
       width: 400px;
-      height: 620px;
+      height: 550px;
       max-width: 400px;
       max-height: 650px;
       background: #040717;
@@ -12,6 +12,7 @@
       justify-content: center;
       overflow: hidden;
       margin-top: 70px;
+      
 }
 
 .fa-solid{
@@ -44,4 +45,13 @@
 #login_button2 a{
   color: #00ccff;
   text-decoration: none;
+}
+.signupbutton a{
+  margin: -50px 0px;
+
+}
+.Alreadyauserinsignup Link{
+
+
+
 }
