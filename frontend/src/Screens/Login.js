@@ -5,6 +5,7 @@ import Css from '../Css/Login.css'
 import background from "../Images/collections-4.jpg";
 
 import {Link,useNavigate } from 'react-router-dom'
+import Header from '../Component/Header';
 const Login = () => {
   const[credentials , setcredentials] =useState({email:"", password:""})
   let navigate=useNavigate();
@@ -19,17 +20,13 @@ const Login = () => {
       body:JSON.stringify({email:credentials.email,password:credentials.password})
     });
     const json =await response.json();
-    // console.log(json); 
+    
     if(!json.success){
       alert("enter valid credentials")
     }
     if(json.success){
       localStorage.setItem("userEmail",credentials.email)
-
       localStorage.setItem("authToken",json.authToken)
-      // console.log(localStorage.getItem("authToken"))
-          
-
        navigate("/");
     }
 
@@ -40,14 +37,11 @@ const Login = () => {
   }
 
 
-    return (<div style={{
-      backgroundImage: `url(${background})`,
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      height:"790px"
-
-  }}>
-      <div className="navbar"><Navbar/></div>
+    return (<div>
+      <div className='loginpagemaincontainer'>
+      <div>
+        <Header/>
+      </div>
 
       <div className="main">    
         
@@ -105,6 +99,7 @@ const Login = () => {
     }}>
     <Footer/>
     </div> */}
+    </div>
 
 
 

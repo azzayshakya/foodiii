@@ -1,22 +1,30 @@
 import React, { useEffect, useState, memo } from 'react';
 import SingleRestOrder from './SingleRestOrder';
-import Header from '../Component/Header';
-import background from "../Images/collections-1.jpg";
+import Header from '../Component/Header'; 
+import MyOrder from './MyOrder';
+
+
 
 
 const RestOrder = () => {
   const [data, setData] = useState([]);
-  const [ordersByDate, setOrdersByDate] = useState(new Map());
+  const [ordersByDate, setOrdersByDate]   = useState(new Map());
+  const [selectedState, setSelectedState] = useState(""); // Add state for selectedState
+  const [selectedOrder, setSelectedOrder] = useState({ orderId: null, newState: "" });
+
 
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
-    const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
-    return formattedDate;
+  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+  const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+  return formattedDate;
   };
   
   const handleOrderStateChange = (orderId, newState) => {
-    console.log(`Order ${orderId} state changed to ${newState}`);
-  };
+    // console.log(`Order ${orderId} state changed to ${newState}`);
+    setSelectedState(newState);
+    setSelectedOrder({ orderId, newState });
+};
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,18 +34,14 @@ const RestOrder = () => {
 
       response = await response.json();
       setData(response.data);
-
-      // Move ordersByDate inside useEffect
       const newOrdersByDate = new Map();
       response.data.forEach((order) => {
-        const date = formatDate(order.date); // Extract and format only the date part
+        const date = formatDate(order.date); 
         if (!newOrdersByDate.has(date)) {
           newOrdersByDate.set(date, []);
         }
         newOrdersByDate.get(date).push(order);
       });
-
-
       setOrdersByDate(newOrdersByDate);
     };
 
@@ -45,11 +49,11 @@ const RestOrder = () => {
   }, [data]);
 
   return (
-    <div>
+    <div className='resturentorderpagemain'>
       <Header />
-      <div style={{ /* backgroundImage: `url(${background})` */ }}>
-        <div className='yourrestorderheading'>Your restaurant orders :</div>
-        <div>
+      <div>
+        <div className='yourrestorderheading' style={{color:"white"}}>Your restaurant orders :</div>
+        <div className='resturentpagemain'>
          
           {[...ordersByDate.keys()].map((date) => (
             <div key={date}>
@@ -58,12 +62,22 @@ const RestOrder = () => {
                 <h1><span>{date}</span></h1>
               </div>
 
-              <ul>
-                {ordersByDate.get(date).map((item, index) => (
-                  <SingleRestOrder  key={index} item={item}  onStateChange={(newState) => handleOrderStateChange(item.order.id, newState)}/>                  
-                ))}
-              </ul> 
+              <ul style={{display:"flex"}}>
+                
+              {ordersByDate.get(date).map((item, index) => (
+                <div key={index}>
+                  <SingleRestOrder item={item} onStateChange={(newState) => handleOrderStateChange(item.order.id, newState)}/>
 
+
+                  {/* Pass orderId and newState to MyOrder component */}
+                  {selectedOrder.orderId === item.order.id && (
+                    <MyOrder orderId={selectedOrder.orderId} newState={selectedState} />
+                    
+
+                    )}
+                </div>
+              ))}
+            </ul>
             </div>
           ))}
         </div>

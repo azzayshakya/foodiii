@@ -3,12 +3,16 @@
     padding: 0px;
     box-sizing: border-box;
   }
-.head{
+.homemain{
+    height: 711px;
+
     /* border: 2px red solid; */
-    height: 419px;
-    /* background: src('../Images/zomatoHead.webp'); */
-    background-position: center; 
-    /* background-color: black; */
+}
+
+.head{
+
+    height: 80px;
+ 
 }
 
 .head img{
@@ -50,26 +54,7 @@ li{
     cursor: pointer;
 
 }
-.mid{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
 
-}
-.mid h1{
-    color: white;
-    font-size: 100px;
-}
-.mid h3{
-    color: white;
-    font-size: 38px;
-    margin-top: 30px;
-    font-weight: lighter;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-      
-}
 
 .abc {
     display: inline-block;
@@ -87,26 +72,39 @@ li{
 .cde{
     display: flex;
     float: right;
+
 }
 
 .efg li{
     background-color: red;
-    width: 80px;
-    height: px;
+    width: 84px;
+    /* height: px; */
     margin-right: 10px;
     border-radius: 5px;
     color: white;
+    
 }
+
 .op{
     display: inline-block;
     
 }
 .asdf{
     /* border: 2px red solid; */
-    background-color: red;
+    /* background-color: red; */
+    /* background-color: rgb(239, 239, 164); */
     margin-right: 10px;
     border-radius: 5px;
+    /* margin-right:20px ; */
+    
 
+}
+.asdf .cartBadge{
+    /* border: 2px blue solid; */
+    /* margin-left: 10px; */
+    position: relative;
+    top: 0px;
+    left: -15px;
 }
 .cartBadge{
     margin-left: -25px;
@@ -121,8 +119,9 @@ li{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: white;
-    height: 50px;
+    background: rgba( 255, 255, 255, 0.25 );
+backdrop-filter:blur(10px) ;
+        height: 50px;
     width: 750px;
     border-radius: 10px;
     padding: 5px 0px;
@@ -134,27 +133,27 @@ li{
     margin-top: 40px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-
-
-
-
- .search-place .location{
-    
-    height: 25px;
-    width: 6%;
+.HeaderSearchInput{
+    /* border:  2px red solid; */
+    width: 50%;
+    height: 70%;
+    border: none;
+    outline: none;
+    font-size: 15px;
     padding-left: 10px;
-    padding-right: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* background: rgba( 255, 255, 255, 0.25 ); */
+    background: none;
+    /* backdrop-filter:blur(10px) ; */
+    color: white;
     
+}
+.search-place img{
     
-} 
-.search-place .search {
-    height: 25px;
-    width: 6%;
-    padding-left: 10px;
-    padding-right: 10px;
-    
-} 
+}
 .HeaderSearchImg{
+    /* border:  2px red solid; */
+
     height: 25px;
     width: 6%;
     padding-left: 10px;
@@ -164,51 +163,39 @@ li{
 }
 
 
-
-
-.mid input {
-    width: 50%;
-    height: 70%;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    padding-left: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.mid p{
-    color: grey;
-    width: 30%;
-    /* text-align: center; */
-    border-right: 1px solid gray;
-    font-size: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-
-
-
-.HeaderSearchInput{
-    width: 50%;
-    height: 70%;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    padding-left: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* color: red; */
-    
-}
-
-
 .search-place ::placeholder {
-    color: red;
-    opacity: 1; /* Firefox */
+    color: white;
+    opacity: 1; 
   }
-  
-  /* .search-place ::-ms-input-placeholder { 
-    color: red;
-  } */
-  
+
+
+ .search-place .location{
+    border:  2px red solid;
+    
+    height: 25px;
+    width: 6%;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    
+} 
+
+
+.search-place .search {
+    /* border:  2px red solid; */
+
+    height: 25px;
+    width: 6%;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+} 
+
+
+
+
+
+
   .ajjuxn{
     /* border: 2px red  solid; */
     color: white;
@@ -218,7 +205,4 @@ li{
     color: white;
   }
 
-  .headertag {
-    
-  }
   

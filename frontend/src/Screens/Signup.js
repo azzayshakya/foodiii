@@ -5,14 +5,17 @@ import background from "../Images/collections-4.jpg";
 import Footer from '../Component/Footer';
 import Navbar from '../Component/Navbar';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Header from '../Component/Header';
 
 const Signup = () => {
+  let navigate=useNavigate();
+   
 
   const [credentials, setcredentials] = useState({ name: "", email: "", geolocation: "", password: "" ,MobileNo:""})
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify({ name: credentials.name, email: credentials.email, location: credentials.geolocation, password: credentials.password,MobileNo: credentials.MobileNo}))
     const response = await fetch("http://localhost:5000/api/creatuser", {
       method: "POST",
       headers: {
@@ -25,19 +28,19 @@ const Signup = () => {
     if (!json.success) {
       alert("enter valid credentials")
     }
+    if (json.success) {
+      navigate("/login")
+    }
+    
   }
   const handleNameChange = (event) => {
     setcredentials({ ...credentials, [event.target.name]: event.target.value })
-
   }
-  return <div style={{
-    backgroundImage: `url(${background})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    height:"873px"
-
-}}>
-    <div className="navbar"><Navbar /></div>
+  return <div className='loginpagemaincontainer'>
+    <div className="">
+      <Header/>
+      
+    </div>
 
     <div className="main">
 
@@ -83,9 +86,9 @@ const Signup = () => {
 
             />
           </div>
-          <div className="CurrentLocationBtn">
+          {/* <div className="CurrentLocationBtn">
             <button>Get Your Locatoin</button>
-          </div>
+          </div> */}
           <div className="input_group">
             <i className="fa fa-unlock-alt"></i>
             <input

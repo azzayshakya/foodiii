@@ -2,16 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatchCart, useCart } from '../Component/ContextReducer';
 const propTypes = {};
 
-
-
-
-
-
 const Newcard = (props) => {
   let data = useCart();
-
-
-
   let foodItem = props.foodItems;
   let dispatch = useDispatchCart();
 
@@ -40,14 +32,7 @@ const Newcard = (props) => {
           borderTopLeftRadius: "5px",
           borderTopRightRadius: "5px"
         }} alt="" />
-        {/*         
-                <img style={{
-                
-                height:"180px",
-                width:"100%",
-                borderTopLeftRadius:"20px",
-                borderTopRightRadius:"20px"
-               }} src="../Images/service-1.jpg" alt="" />  */}
+  
       </div>
       
       <div class="card-body ">

@@ -37,10 +37,10 @@ const Foodcards = () => {
 
 
     return  <div>
-        <div className="cardspage" style={{ 
-            // backgroundImage: `url(${background2})`
-             }}>
+        <div className="cardspage" >
+            <div className='cardpageheader'>
             <Header/>
+            </div>
 
 <div className="search-place">
                   
@@ -103,7 +103,7 @@ const Foodcards = () => {
 
 
         <div className="Bfooter">
-            <Footer />       
+            {/* <Footer />        */}
         </div>
 
         </div>

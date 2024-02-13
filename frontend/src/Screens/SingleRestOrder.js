@@ -9,6 +9,7 @@ const SingleRestOrder = ({ item, onStateChange }) => {
         const selectedValue = event.target.value;
         setSelectedState(selectedValue);
         onStateChange(selectedValue); // Send the selected value to the parent component or other component
+        // console.log("Selected state changed to:", selectedValue);
     };
    
 

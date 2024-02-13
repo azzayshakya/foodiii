@@ -1,0 +1,11 @@
+.myorderpagemain{
+    width: 100%;
+    height: 711px;
+    /* border: 2px red solid; */
+    background: url("../Images/hero-slider-1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+
+}

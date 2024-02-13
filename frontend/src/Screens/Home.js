@@ -1,10 +1,8 @@
 import React from 'react';
-import Midpart from '../Component/Midpart';
-import Footer from '../Component/Footer';
-import Header from '../Component/Header';
-import Newcard from '../Component/Newcard'
 import { useSelector,useDispatch } from 'react-redux';
 import orderActions from '../store/order/orderActions';
+import BottomHeader from '../Component/BottomHeader';
+import {} from '../Css/Header.css'
 
 
 const Home = () => {
@@ -12,11 +10,10 @@ const Home = () => {
     const dispatch=useDispatch();
     
 
-    return( <div>
-        <Header/>
-        <Midpart/>
-    
-        <Footer/>
+    return( <div  className='homemain'>
+      
+        <BottomHeader/>
+       
 
 
     </div>);

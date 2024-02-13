@@ -22,7 +22,7 @@ app.use(express.json());
 app.use("/api/",require("./Routes/CreateUser"));
 app.use("/api/",require("./Routes/foodData"));
 app.use("/api/",require("./Routes/OrderData"));
-app.use("/api/",require("./Routes/YourOrder"));
+// app.use("/api/",require("./Routes/YourOrder"));
 app.use("/api",require("./Routes/myOrderData"));
 
 // app.use("/api/",require("./Routes/Resturent/authenticateResturent"));

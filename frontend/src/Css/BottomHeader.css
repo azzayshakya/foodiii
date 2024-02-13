@@ -1,0 +1,70 @@
+
+
+.BottomHeader{
+    /* border: 2px red solid; */
+    width: 100%;
+    height: 100%;
+}
+.BottomHeaderimg{ 
+    background: url("../Images/hero-slider-1.jpg");
+    width: 100%;
+    /* height: 100%; */
+    height: 711px;
+    /* background: none; */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* position: absolute;
+    top: 0px; */
+}
+.mid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 50px; */
+    
+
+}
+.mid h1{
+    color: white;
+    font-size: 100px;
+    margin-top: 160px;
+}
+.mid h3{
+    color: white;
+    font-size: 38px;
+    margin-top: 30px;
+    font-weight: lighter;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      
+}
+.midbutton{
+    /* border: 2px red solid; */
+    margin: 100px;
+    margin-left: -500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.midbutton button{
+    
+    border-radius: 20px;
+background: rgba( 255, 255, 255, 0.25 );
+backdrop-filter:blur(10px) ;
+width: 150px;
+height: 50px;
+font-weight:500;
+/* background-color: rgb(239, 239, 164); */
+background-color: red;
+
+border: none;
+/* border: 2px  black solid; */
+/* border: 2px red solid; */
+
+
+}
+.midbutton span{
+        /* border: 2px red solid; */
+}

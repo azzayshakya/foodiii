@@ -1,8 +1,7 @@
 import React, { useState} from 'react';
-
-import background from "../Images/collections-4.jpg";
-import Navbar from '../Component/Navbar';
 import {Link,useNavigate } from 'react-router-dom'
+import {} from '../Css/ragisterresturentpage.css'
+import Header from '../Component/Header';
 
  
 
@@ -42,19 +41,11 @@ const RagisterResturent = () => {
   }
   
     return (
-    <div style={{
-        backgroundImage: `url(${background})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        height:"790px"
-  
-    }}>
-        <div className="navbar">
-        {/* <Navbar/> */}
-        </div>
-  
-        <div className="main">    
-          
+    <div className='ragisterresturentpage'>
+      <div>
+        <Header/>
+      </div>
+        <div className="main">         
         <div className="login_form_container">
         <div className="login_form">
           <h2 className='animate_animated animate_bounce animate_infineite'>Your Resturent</h2>
