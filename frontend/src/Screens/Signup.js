@@ -16,7 +16,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/creatuser", {
+    const response = await fetch("http://localhost:7000/api/creatuser", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

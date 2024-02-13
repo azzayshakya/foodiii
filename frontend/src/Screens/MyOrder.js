@@ -14,7 +14,7 @@ const MyOrder = ({orderId, newState }) => {
             // console.log("Received New State:", newState);
             // ... (rest of the code)
             try {
-                const response = await fetch("http://localhost:5000/api/myOrderData", {
+                const response = await fetch("http://localhost:7000/api/myOrderData", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

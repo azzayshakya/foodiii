@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.10",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.2",
