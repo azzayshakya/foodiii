@@ -2,7 +2,9 @@ const express =require("express")
 const router = express.Router();
 
 router.post('/foodData',(req,res)=>{
+    
     try{
+        // console.log("heyy")
         
         res.send([global.food_items,global.foodCategory])
     
