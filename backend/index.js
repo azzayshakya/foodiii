@@ -6,7 +6,10 @@ const mongoDB =require("./db")
 mongoDB();
 
 const cors = require('cors');
-app.use(cors())
+app.use(cors({
+  origin: 'https://foodiii.vercel.app/',
+  credentials: true, 
+}));
 
 app.get('/', (req, res) => {
   res.send(`Azzay Your app listening on port ${port}`)
