@@ -6,13 +6,17 @@ const mongoDB =require("./db")
 mongoDB();
 
 const cors = require('cors');
+
 app.use(cors({
   origin: '*',
   credentials: true, 
 }));
+
+
 app.get('/', (req, res) => {
   res.send(`Azzay Your app listening on port ${port}`)
 })
+
 // app.use((req,res,next)=>{
 //   res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
 //   res.header("Access-Control-Allow-Headers",
