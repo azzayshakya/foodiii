@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Css from '../Css/Signup.css'
-import background from "../Images/collections-4.jpg";
+// import background from "../Images/collections-4.jpg";
 
 import Footer from '../Component/Footer';
 import Navbar from '../Component/Navbar';

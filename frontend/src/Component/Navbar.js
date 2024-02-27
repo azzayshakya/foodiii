@@ -1,7 +1,7 @@
 import React from 'react';
 import Css from '../Css/Navbar.css'
 import { Link } from 'react-router-dom'
-import background from "../Images/collection-3.jpg";
+// import background from "../Images/collection-3.jpg";
 
 
 

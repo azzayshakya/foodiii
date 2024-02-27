@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import Footer from '../Component/Footer';
 import Navbar from '../Component/Navbar';
 import Css from '../Css/Login.css'
-import background from "../Images/collections-4.jpg";
+// import background from "../Images/collections-4.jpg";
 
 import {Link,useNavigate } from 'react-router-dom'
 import Header from '../Component/Header';

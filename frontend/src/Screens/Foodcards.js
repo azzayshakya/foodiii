@@ -3,9 +3,9 @@ import css from '../Css/Foodcards.css'
 import Footer from '../Component/Footer'
 import Newcard from '../Component/Newcard';
 import Header from '../Component/Header';
-import background from "../Images/zomatoHead.webp";
+// import background from "../Images/zomatoHead.webp";
 import {Link} from 'react-router-dom'
-import background2 from "../Images/collections-1.jpg";
+// import background2 from "../Images/collections-1.jpg";
 import { responsiveFontSizes } from '@mui/material';
 
 

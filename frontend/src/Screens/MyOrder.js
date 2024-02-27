@@ -51,7 +51,7 @@ const MyOrder = ({orderId, newState }) => {
             <div
                 className="midpartoffoodpage myOrderDataPage"
                 style={{
-                    //  backgroundImage: `url(${background})`
+                 
                 }}
             >
                 <h3 className="yourorderheading">YOUR ORDER HISTORY..</h3>
@@ -67,8 +67,8 @@ const MyOrder = ({orderId, newState }) => {
                 </div>
             </div>
             <div>
-                <p>Order ID: {orderId}</p>
-                <p>New State: {newState}</p>
+                {/* <p>Order ID: {orderId}</p> */}
+                {/* <p>New State: {newState}</p> */}
             </div>
         </div>
     );
