@@ -15,6 +15,7 @@ import MyOrder from './Screens/MyOrder';
 import RagisterResturent from './Screens/RagisterResturent';
 import RestOrder from './Screens/RestOrder';
 import BottomHeader from './Component/BottomHeader';
+// import YourOrder from './Screens/YourOrder'
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
         <Route exact path ="/RestOrder" element={<RestOrder/>}/>
         <Route exact path ="/foodcards" element={<Foodcards/>}/>
         <Route exact path ="/myOrder" element={<MyOrder/>}/>
+        {/* <Route exact path ="/AzayOrder" element={<YourOrder/>}/> */}
+
         
       </Routes>
     </div>

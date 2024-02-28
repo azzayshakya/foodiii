@@ -16,7 +16,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://foodiii.onrender.com/api/creatuser", {
+    const response = await fetch("http://localhost:7000/api/creatuser", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ const Signup = () => {
             />
           </div>
           <div className="input_group">
-            <i className="fa fa-unlock-alt"></i>
+          <i class="fa fa-address-book" aria-hidden="true"></i>
             <input
               placeholder="Mobile No."
               className="input_text"

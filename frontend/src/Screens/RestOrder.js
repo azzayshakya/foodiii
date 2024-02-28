@@ -1,7 +1,7 @@
 import React, { useEffect, useState, memo } from 'react';
 import SingleRestOrder from './SingleRestOrder';
 import Header from '../Component/Header'; 
-import MyOrder from './MyOrder';
+import SingleOrder from '../Screens/SingleOrder'
 
 
 
@@ -9,8 +9,7 @@ import MyOrder from './MyOrder';
 const RestOrder = () => {
   const [data, setData] = useState([]);
   const [ordersByDate, setOrdersByDate]   = useState(new Map());
-  const [selectedState, setSelectedState] = useState(""); // Add state for selectedState
-  const [selectedOrder, setSelectedOrder] = useState({ orderId: null, newState: "" });
+
 
 
   const formatDate = (dateString) => {
@@ -19,16 +18,24 @@ const RestOrder = () => {
   return formattedDate;
   };
   
-  const handleOrderStateChange = (orderId, newState) => {
-    // console.log(`Order ${orderId} state changed to ${newState}`);
-    setSelectedState(newState);
-    setSelectedOrder({ orderId, newState });
-};
+    // Add a state to store the states of all items
+    const [selectedStates, setSelectedStates] = useState({});
+    const [orderStates, setOrderStates] = useState({});
+
+    // Function to handle state changes
+    const handleStateChange = (id, newState) => {
+      setSelectedStates(prevStates => ({
+        ...prevStates,
+        [id]: newState
+      }));
+      console.log(newState ,id)
+    };
+
 
 
   useEffect(() => {
     const fetchData = async () => {
-      let response = await fetch("https://foodiii.onrender.com/api/getOrderOfMyresturant", {
+      let response = await fetch("http://localhost:7000/api/getOrderOfMyresturant", {
         method: "GET"
       });
 
@@ -43,6 +50,7 @@ const RestOrder = () => {
         newOrdersByDate.get(date).push(order);
       });
       setOrdersByDate(newOrdersByDate);
+      // console.log(newOrdersByDate)
     };
 
     fetchData();
@@ -65,16 +73,11 @@ const RestOrder = () => {
               <ul style={{display:"flex"}}>
                 
               {ordersByDate.get(date).map((item, index) => (
+
                 <div key={index}>
-                  <SingleRestOrder item={item} onStateChange={(newState) => handleOrderStateChange(item.order.id, newState)}/>
+                  <SingleRestOrder item={item} onStateChange={handleStateChange} />
 
-
-                  {/* Pass orderId and newState to MyOrder component */}
-                  {selectedOrder.orderId === item.order.id && (
-                    <MyOrder orderId={selectedOrder.orderId} newState={selectedState} />
-                    
-
-                    )}
+            
                 </div>
               ))}
             </ul>

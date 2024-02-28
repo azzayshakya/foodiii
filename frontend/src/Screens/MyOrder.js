@@ -4,17 +4,20 @@ import Header from '../Component/Header';
 import Css from '../Css/SingleOrder.css';
 import {} from '../Css/myorderpage.css'
 
-const MyOrder = ({orderId, newState }) => {
+const MyOrder = ({ orderId, newState, handleStateChange}) => {
     const [orderData, setOrderData] = useState([]);
-    
+    const [ordersByDate, setOrdersByDate] = useState(new Map());
 
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+        const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+        return formattedDate;
+    };
+        
     useEffect(() => {
         const fetchMyOrder = async () => {
-            // console.log("Received Order ID:", orderId);
-            // console.log("Received New State:", newState);
-            // ... (rest of the code)
             try {
-                const response = await fetch("https://foodiii.onrender.com/api/myOrderData", {
+                let response = await fetch("http://localhost:7000/api/YourOrder", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -24,23 +27,27 @@ const MyOrder = ({orderId, newState }) => {
                     })
                 });
 
-                if (response.ok) {
-                    const data = await response.json();
-                    let array = data.orderdata.order_data;
-                    array = array.reverse();
-                    setOrderData(array);
-                } else {
-                   
-                    console.error("Request failed with status:", response.status);
-                }
-            } catch (error) {
+                response = await response.json();
+                setOrderData(response.myData);
+                 
+                
+                const newOrdersByDate = new Map();
+                response.myData.forEach((order) => {
+                    const date = formatDate(order.date); 
+                    if (!newOrdersByDate.has(date)) {
+                        newOrdersByDate.set(date, []);
+                    }
+                    newOrdersByDate.get(date).push(order);
+                });
+                setOrdersByDate(newOrdersByDate);
                
-                console.error("Error:", error);
+                
+            } catch (error) {
+                console.error('Error fetching orders:', error);
             }
         };
-
         fetchMyOrder();
-    }, [orderId, newState]);
+    }, []); 
 
    
     return (
@@ -55,21 +62,33 @@ const MyOrder = ({orderId, newState }) => {
                 }}
             >
                 <h3 className="yourorderheading">YOUR ORDER HISTORY..</h3>
-                <div className="qwer">
-                    {orderData &&
-                        orderData.map((items, index) => (
-                            <li key={index}>
-                                <SingleOrder
-                                    items={items}
-                                    />
-                            </li>
-                        ))}
+
+                <div className='resturentpagemain'>
+         
+          {[...ordersByDate.keys()].map((date) => (
+            <div key={date}>
+
+              <div class="nine">
+                <h1><span>{date}</span></h1>
+              </div>
+
+              <ul style={{display:"flex"}}>
+                
+              {ordersByDate.get(date).map((item, index) => (
+
+                <div key={index}>
+                  <SingleOrder item={item} handleStateChange={handleStateChange} />
+
+            
                 </div>
+              ))}
+            </ul>
             </div>
-            <div>
-                {/* <p>Order ID: {orderId}</p> */}
-                {/* <p>New State: {newState}</p> */}
+          ))}
+        </div>
+                
             </div>
+           
         </div>
     );
 };

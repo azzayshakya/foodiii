@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import {Link,useNavigate } from 'react-router-dom'
 import {} from '../Css/ragisterresturentpage.css'
 import Header from '../Component/Header';
+import { IoMdContact } from "react-icons/io";
 
  
 
@@ -15,7 +16,7 @@ const RagisterResturent = () => {
     const handleSubmit=async(e) =>{
     e.preventDefault();
     console.log(JSON.stringify({resturentId:credentials.resturentId,MobileNo:credentials.MobileNo,password:credentials.password}))
-    const response = await fetch("https://foodiii.onrender.com/api/authenticateResturent",{
+    const response = await fetch("http://localhost:7000/api/authenticateResturent",{
       method :"POST",
       headers:{
         'Content-Type':'application/json'
@@ -61,8 +62,8 @@ const RagisterResturent = () => {
                 onChange={handleNameChange}
               />
             </div>
-            <div className="input_group">
-              <i className="fa fa-unlock-alt"></i>
+            <div className="input_group" style={{alignItems:"center"}}>
+            <i class="fa fa-address-book" aria-hidden="true"></i>
               <input
                 type="number"
                 placeholder="Mobile No"

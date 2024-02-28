@@ -2,45 +2,31 @@ import React from 'react'
 
 
 
-const SingleOrder = ({  items, selectedOrderState }) => {
-
-    const date = items[0].Order_date
+const SingleOrder = ({  item, foodState , handleStateChange }) => {
+ console.log(handleStateChange)
   
     return (<div>
-        <div className='singleMainDate'>
-            <ul className='maincontain'>
-                <div class="nine">
-                    <h1><span>{date}</span></h1>
-                </div>
-                {
-                    items
-                        .slice(1)
-                        .map((item, index) => {
-                            
-                            return <li className='mainonecard' key={index}>
-                                <div className='innerpart'>                           
-                                    <p style={{textAlign:"center"}}> <img style={{width: '300px', height: '200px', borderRadius: '52px' }} src={item.img} alt="hey it's your image" /></p>
-                                    <p>  Name:{item.name}</p>
-                                    <p>  Price:{item.price}</p>
-                                    <p>  Qty:{item.qty}</p>
-                                    <p>  Size:{item.size}</p>
-                                    <div className='Your-Order-State'>
+        <li className='mainonecard' >   
+        <div className='innerpart'>
 
-                                    {selectedOrderState && (
-                                            <div>
-                                                {/* <p>Selected Order ID: {selectedOrderState.orderId}</p>
-                                                <p>New State: {selectedOrderState.newState}</p> */}
-                                            </div>
-                                        )}
-                                        
+         <p><img style={{ width: '280px', height: '200px', borderRadius: '52px' }} src={item.order.img} alt="hey it's your image" /></p>
+         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>ID </div>:<div className='orderpagemaincontainer_rightside'>{item._id}</div></div>
 
-                                    </div>
-                                </div>
-                            </li>
-                        })
-                }
-            </ul>
-        </div>
+         
+         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>Name </div>:<div className='orderpagemaincontainer_rightside'>{item.order.name}</div></div>
+         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>Qty </div>:<div className='orderpagemaincontainer_rightside'>{item.order.qty}</div></div>      
+         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>Size </div>:<div className='orderpagemaincontainer_rightside'>{item.order.size}</div></div>
+         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>Price </div>:<div className='orderpagemaincontainer_rightside'>{item.order.price}</div></div> 
+         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>MobileNo </div>:<div className='orderpagemaincontainer_rightside'>{item.MobileNo}</div></div> 
+         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>Email </div>:<div className='orderpagemaincontainer_rightside'>{item.email}</div></div>
+
+         <div className="foodState">
+         {foodState}
+
+         </div>
+
+     </div>
+     </li>
     </div>)
 }
 
