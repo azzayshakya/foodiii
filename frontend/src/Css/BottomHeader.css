@@ -8,14 +8,12 @@
 .BottomHeaderimg{ 
     background: url("../Images/hero-slider-1.jpg");
     width: 100%;
-    /* height: 100%; */
+
     height: 711px;
-    /* background: none; */
+
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* position: absolute;
-    top: 0px; */
 }
 .mid{
     display: flex;
@@ -23,6 +21,8 @@
     justify-content: center;
     align-items: center;
     /* margin-top: 50px; */
+    /* border: 2px red solid; */
+    
     
 
 }
@@ -37,12 +37,11 @@
     margin-top: 30px;
     font-weight: lighter;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-      
 }
 .midbutton{
     /* border: 2px red solid; */
-    margin: 100px;
-    margin-left: -500px;
+    margin-top: 8%;
+    margin-left: -50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,4 +66,13 @@ border: none;
 }
 .midbutton span{
         /* border: 2px red solid; */
+}
+
+
+@media(max-width:792px){
+    .mid{
+        border: 2px blue solid;
+        padding: 0px 20px;
+    }
+
 }

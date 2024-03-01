@@ -24,7 +24,6 @@ const SingleOrder = ({  item, foodState , handleStateChange }) => {
          {foodState}
 
          </div>
-
      </div>
      </li>
     </div>)

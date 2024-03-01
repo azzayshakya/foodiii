@@ -205,4 +205,82 @@ backdrop-filter:blur(10px) ;
     color: white;
   }
 
+  .togglenavbar{
+    display: none;
+  }
+  .toglebutton{
+    display: none;
+}
+.toglebutton button{
+    
+    background: none;
+    font-size: 20px;
+    margin-right: 20px;
+    padding: 5px;
+}
   
+
+  @media(max-width:670px){
+    
+
+    header{
+        background:rgba(255,255,255,0.4);
+    }
+
+    .mainnavbar ol {
+        
+        display: none;
+
+    }
+    .link{
+        color: red;
+        
+
+    }
+    .togglenavbar{
+        display: block;
+    }
+    .togglenavbar ol{
+        
+        cursor: pointer;
+        background:rgba(255,255,255,0.4);
+        border-bottom-right-radius: 50px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top:89px;
+        left: 0px;
+        padding: 10px 40px;
+        padding-bottom: 59px;
+
+    }
+
+    .togglenavbar ol li{
+        font-weight: 800;
+        /* font-size: px; */
+        
+        padding: 20px 0px;
+    } 
+    .cartbutton{
+        /* background:rgba(255,255,255,0.4); */
+
+        position: absolute;
+        top: 250px;
+        left: 40px;
+        margin: 10px 0px;
+
+    }
+    .cartbutton li{
+        background: none;
+        border: 1px black solid;
+        
+    }
+    .toglebutton{
+        display: block;
+    }
+    .link:hover{
+        color: black;
+    }
+   
+
+  }
