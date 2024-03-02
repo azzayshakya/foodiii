@@ -11,16 +11,21 @@
     background-repeat: no-repeat;
     height: 712px;
    overflow-y: auto;
+
+
 }
 .cardpageheader{
    height: 50px;
 }
 
 .Bnavbar{
+   
     /* border: 2px  green solid; */
      height: 80px;
     width:1280px; 
  }
+
+
 
 
  /* .card{
@@ -108,3 +113,6 @@
    backdrop-filter:blur(10px) ;
 }
 
+
+.ankit{
+}

@@ -7,6 +7,7 @@ import Navbar from '../Component/Navbar';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Component/Header';
+import {} from '../Css/Loader.css'
 
 const Signup = () => {
   let navigate=useNavigate();
@@ -14,8 +15,14 @@ const Signup = () => {
 
   const [credentials, setcredentials] = useState({ name: "", email: "", geolocation: "", password: "" ,MobileNo:""})
 
+  const [showPopup, setShowPopup] = useState(false);
+  const [Button,setButton]=useState(true);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setButton(false)
+    setShowPopup(true)
+
     const response = await fetch("https://foodiii.onrender.com/api/creatuser", {
       method: "POST",
       headers: {
@@ -26,9 +33,13 @@ const Signup = () => {
     const json = await response.json();
     console.log(json);
     if (!json.success) {
+      setShowPopup(false)
+      setButton(true)
       alert("enter valid credentials")
     }
     if (json.success) {
+      setShowPopup(false)
+      setButton(true)
       navigate("/login")
     }
     
@@ -114,12 +125,18 @@ const Signup = () => {
 
             />
           </div>
-          <div className="button_group signupbutton" onClick={handleSubmit} id="login_button">
-            <a>Submit</a>
-          </div>
-          {/* <div className="button_group2 Alreadyauserinsignup " id="login_button2">
-            <a><Link to="/login">Already a user</Link></a>
-          </div> */}
+          {showPopup &&
+                    <div className="SingingUpLoading " style={{marginTop:"50px"}}>
+                    <h2>Please Wait !</h2>
+                    <div className="SignUpLoader"></div>
+                </div>
+                }
+                {Button &&
+                    <div className="button_group signupbutton" onClick={handleSubmit} id="login_button">
+                    <a>Submit</a>
+                  </div>
+                }
+      
   
         </div>
       </div>

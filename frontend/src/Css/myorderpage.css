@@ -17,3 +17,25 @@
     flex-wrap: wrap;
 
 }
+
+.myOrderPageMainOneCard{
+    /* border: 2px red solid; */
+    border-radius: 0px 0px 52px 52px;
+
+    
+    margin: 20px;
+    width:300px ;
+    height: 380px;
+    background-color: white;
+    /* border: 2px blue solid; */
+    background: rgba( 255, 255, 255, 0.4);
+   backdrop-filter:blur(10px) ;
+
+}
+.myOrderPageMainOneCard  img{
+    width: 300px;
+    /* margin-top: 0px; */
+    position: relative;
+    top: 0px;
+    left: -20px;
+}

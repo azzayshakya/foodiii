@@ -2,14 +2,24 @@ import React, { useState} from 'react';
 import Footer from '../Component/Footer';
 import Navbar from '../Component/Navbar';
 import Css from '../Css/Login.css'
+import {} from '../Css/Loader.css'
 // import background from "../Images/collections-4.jpg";
 
 import {Link,useNavigate } from 'react-router-dom'
 import Header from '../Component/Header';
 const Login = () => {
+
+  const [showPopup, setShowPopup] = useState(false);
+    const [Button,setButton]=useState(true);
+
   const[credentials , setcredentials] =useState({email:"", password:""})
+
   let navigate=useNavigate();
   const handleSubmit=async(e) =>{
+
+    setButton(false)
+    setShowPopup(true)
+
     e.preventDefault();
     console.log(JSON.stringify({email:credentials.email,password:credentials.password}))
     const response = await fetch("https://foodiii.onrender.com/api/loginuser",{
@@ -23,8 +33,12 @@ const Login = () => {
     
     if(!json.success){
       alert("enter valid credentials")
+      setShowPopup(false)
+      setButton(true)
     }
     if(json.success){
+      setShowPopup(false)
+      setButton(true)
       localStorage.setItem("userEmail",credentials.email)
       localStorage.setItem("authToken",json.authToken)
        navigate("/");
@@ -74,9 +88,19 @@ const Login = () => {
 
             />
           </div>
-        <div className="button_group" onClick={handleSubmit} id="login_button">
-          <a>Submit</a>
-        </div>
+
+          {showPopup &&
+                    <div className="SingingUpLoading"  style={{marginTop:"100px"}}>
+                    <h2>Please Wait !</h2>
+                    <div className="SignUpLoader"></div>
+                </div>
+                }
+                {Button &&
+                    <div className="button_group" onClick={handleSubmit} id="login_button">
+                    <a>Submit</a>
+                  </div>
+                }
+        
         <div className="fotter">
           {/* <a>Forgot Password ?</a> */}
           <a><Link className="signuplink" to="/Signup">Signup</Link></a>

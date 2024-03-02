@@ -148,17 +148,13 @@
 .orderpagemaincontainer{
     display: flex;
     margin: 5px 0px;
-
-    
-    
-    
 }
 
 .orderpagemaincontainer_leftside{
     color: white;
     background-color: red;
     padding: 0px 5px;
-    border-radius: 2px;
+    border-radius: 12px;
     margin-right: 9px;
     width: 90px;
     text-align: center;

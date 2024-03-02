@@ -7,8 +7,10 @@ import {} from '../Css/myorderpage.css'
 const MyOrder = ({ orderId, newState, handleStateChange}) => {
     const [orderData, setOrderData] = useState([]);
     const [ordersByDate, setOrdersByDate] = useState(new Map());
+    const [loading, setLoading] = useState(true);
 
     const formatDate = (dateString) => {
+
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
         const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
         return formattedDate;
@@ -17,6 +19,8 @@ const MyOrder = ({ orderId, newState, handleStateChange}) => {
     useEffect(() => {
         const fetchMyOrder = async () => {
             try {
+            setLoading(true)
+
                 let response = await fetch("https://foodiii.onrender.com/api/YourOrder", {
                     method: 'POST',
                     headers: {
@@ -45,6 +49,9 @@ const MyOrder = ({ orderId, newState, handleStateChange}) => {
             } catch (error) {
                 console.error('Error fetching orders:', error);
             }
+            finally{
+                setLoading(false)
+            }
         };
         fetchMyOrder();
     }, []); 
@@ -55,6 +62,13 @@ const MyOrder = ({ orderId, newState, handleStateChange}) => {
             <div>
             <Header />
             </div>
+
+            {loading ? (
+                <div className="DataLoading">
+                    <h2>Data is loading !</h2>
+                    <div className="loader"></div>
+                </div>
+            ) : (
             <div className="MyOrdersPageBeforeHistory">
                 <h3 className="yourorderheading">YOUR ORDER HISTORY..</h3>
 
@@ -81,6 +95,7 @@ const MyOrder = ({ orderId, newState, handleStateChange}) => {
         </div>
                 
             </div>
+            )}
            
         </div>
     );

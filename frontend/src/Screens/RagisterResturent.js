@@ -3,6 +3,7 @@ import {Link,useNavigate } from 'react-router-dom'
 import {} from '../Css/ragisterresturentpage.css'
 import Header from '../Component/Header';
 import { IoMdContact } from "react-icons/io";
+import {} from '../Css/Loader.css'
 
  
 
@@ -12,8 +13,17 @@ const RagisterResturent = () => {
       "password":"",
       "resturentId":""
     })
+
+    
+  const [showPopup, setShowPopup] = useState(false);
+  const [Button,setButton]=useState(true);
+
     let navigate=useNavigate();
     const handleSubmit=async(e) =>{
+
+      setButton(false)
+      setShowPopup(true)
+
     e.preventDefault();
     console.log(JSON.stringify({resturentId:credentials.resturentId,MobileNo:credentials.MobileNo,password:credentials.password}))
     const response = await fetch("https://foodiii.onrender.com/api/authenticateResturent",{
@@ -26,11 +36,15 @@ const RagisterResturent = () => {
     const json =await response.json();
 
     if(!json.success){
+      setShowPopup(false)
+      setButton(true)
       alert("enter valid credentials")
     }
 
 
     if(json.success){
+      setShowPopup(false)
+      setButton(true)
       localStorage.setItem("resturentId",credentials.resturentId)
       localStorage.setItem("authToken2",json.authToken2)
        navigate("/");
@@ -87,9 +101,18 @@ const RagisterResturent = () => {
                 onChange={handleNameChange}
               />
             </div>
-            <div className="button_group" onClick={handleSubmit} id="login_button">
-          <a>Submit</a>
-        </div>
+            {showPopup &&
+                    <div className="SingingUpLoading" style={{marginTop:"90px"}}>
+                    <h2>Please Wait !</h2>
+                    <div className="SignUpLoader"></div>
+                </div>
+                }
+                {Button &&
+                  <div className="button_group" onClick={handleSubmit} id="login_button">
+                  <a>Submit</a>
+                </div>
+                }
+            
         </div>
         </div> 
     </div>
