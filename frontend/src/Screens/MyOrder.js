@@ -51,35 +51,28 @@ const MyOrder = ({ orderId, newState, handleStateChange}) => {
 
    
     return (
-        <div className='myorderpagemain'> 
+        <div className='myOrdersPageMain'> 
             <div>
             <Header />
             </div>
-            <div
-                className="midpartoffoodpage myOrderDataPage"
-                style={{
-                 
-                }}
-            >
+            <div className="MyOrdersPageBeforeHistory">
                 <h3 className="yourorderheading">YOUR ORDER HISTORY..</h3>
 
-                <div className='resturentpagemain'>
+                <div className=' MyOrdersPageBeforeDate'>
          
           {[...ordersByDate.keys()].map((date) => (
-            <div key={date}>
 
+            <div key={date} className='Beforedate'>
               <div class="nine">
                 <h1><span>{date}</span></h1>
               </div>
 
-              <ul style={{display:"flex"}}>
+              <ul className='myorderpageajay MyOrderPageCards' style={{display:""}}>
                 
               {ordersByDate.get(date).map((item, index) => (
 
                 <div key={index}>
-                  <SingleOrder item={item} handleStateChange={handleStateChange} />
-
-            
+                  <SingleOrder item={item} handleStateChange={handleStateChange} />            
                 </div>
               ))}
             </ul>

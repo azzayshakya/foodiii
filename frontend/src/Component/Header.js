@@ -8,6 +8,7 @@ import {} from '../Css/Header.css'
 import { GraphicEq } from '@mui/icons-material';
 import { ImCross } from "react-icons/im";
 import { FaBars } from "react-icons/fa6";
+import { FaHome } from "react-icons/fa";
 
 const Header = () => {
 
@@ -27,7 +28,7 @@ const Header = () => {
         localStorage.removeItem("authToken2")
         navigate("/login")   
     };
-    return <div>
+    return (<>
 
         <div className="head" >
 
@@ -38,53 +39,41 @@ const Header = () => {
                 <div className='mainnavbar'>
                     <ol>
                         <li><Link className='link myOrder' to="/">Home</Link></li>
-                        {(!localStorage.getItem("authToken2")) ?
-                    
-                            <li><Link className='link myOrder' to="/RagisterResturent">Your_Resturent</Link></li>
-                            : " "}
-
-
-                        {(localStorage.getItem("authToken2")) ?
-                            <li><Link className='link myOrder' to="/RestOrder">Restaurant_Orders</Link></li>
-                           
-
-                            : " "}
-
-                                     
-                        {(localStorage.getItem("authToken")) ?
                         
-                            <li><Link className='link myOrder' to="/myOrder">My Orders</Link></li>
-                            
-                            : " "}
+                        {(!localStorage.getItem("authToken2")) ?                   
+                            <li><Link className='link myOrder' to="/RagisterResturent">Your_Resturent</Link></li>                   
+                            :<li><Link className='link myOrder' to="/RestOrder">Restaurant_Orders</Link></li>}
                         {(!localStorage.getItem("authToken")) ?
-
-
-
                             <div className='abc'>
                                 <li><Link className='link' to="/login">Login</Link></li>
                                 <li><Link className='link' to="/Signup">Sign up</Link></li>
                             </div>
 
                             : <div className='cde'>
-                                <div onClick={handleLogout}>
-                                <li> <Link to="" className='link myOrder'>Log Out</Link></li>
-                            </div>
-
-                                <div className=" cartbutton efg asdf "  onClick={()=>{setCartView(true)}}>
-                                    <li>Cart <Link to=""></Link></li>  
+                                <div >
+                                <li><Link className='link myOrder' to="/myOrder">My Orders</Link></li>
+                                <li onClick={handleLogout} > <Link to="" className='link myOrder'>Log Out</Link></li>
+                                <li  onClick={()=>{setCartView(true)}}  className='cartbutton'>Cart  
                                     <div className="badge">
                                     <Badge pill bg="danger cartBadge">{data.length}</Badge>
-                                        </div>                          
-                                </div>
+                                    </div>     
+                                </li>                      
                                 <div className='modelcart'>
-                                {cartView? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
+                                    {cartView? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
                                 </div>
-
+                                </div>
                             </div>
                         }
                     </ol>
+                    <div className='toglebutton' onClick={togglebutton}>
+                    <button>
+                        {IsTogle ? <ImCross/>:<FaBars />}
+                    </button>
                 </div>
-
+                   
+                </div>
+                </header>
+            </div>
          
 
                 
@@ -92,58 +81,43 @@ const Header = () => {
                 { IsTogle &&(
                     <div>
                         <header  className='togglenavbar'>
-                            <ol>
-                                <li><Link className='link myOrder' to="/">Home</Link></li>
+                        <ol>
+                        <li> <Link className='link myOrder' to="/"><div className='Headericons'><FaHome/></div>Home</Link></li>
+                        
+                        {(!localStorage.getItem("authToken2")) ?                   
+                            <li><Link className='link myOrder' to="/RagisterResturent">Your_Resturent</Link></li>                   
+                            :<li><Link className='link myOrder' to="/RestOrder">Restaurant_Orders</Link></li>}
+                        {(!localStorage.getItem("authToken")) ?
+                            <div className='abc'>
+                                <li><Link className='link' to="/login">Login</Link></li>
+                                <li><Link className='link' to="/Signup">Sign up</Link></li>
+                            </div>
 
-                                    {(!localStorage.getItem("authToken2")) ?
-                                    <li><Link className='link myOrder' to="/RagisterResturent">Your_Resturent</Link></li>
-                                    : " "}  
-
-                                    {(localStorage.getItem("authToken")) ?
-                                    <li><Link className='link myOrder' to="/myOrder">My Orders</Link></li>
-                                    : " "}
-                                    
-                                    {(!localStorage.getItem("authToken")) ?
-                                    <div className='abc'>
-                                        <li><Link className='link' to="/login">Login</Link></li>
-                                        <li><Link className='link' to="/Signup">Sign up</Link></li>
-                                    </div>
-
-                                    : <div className='cde'>
-                                        <div onClick={handleLogout}>
-                                        <li> <Link to="" className='link myOrder'>Log Out</Link></li>
-                                    </div>
-
-                                    <div className=" cartbutton efg asdf "  onClick={()=>{setCartView(true)}}>
-
-                                        <li>Cart <Link to=""></Link></li>  
-                                        <div className="badge">
-                                            <Badge pill bg="danger cartBadge">{data.length}</Badge>
-                                        </div>                  
-                                    </div>
-
-                                    <div className='modelcart'>
-                                        {cartView? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
-                                    </div>
-
-                                    </div>
-                                    }
-                            </ol>
+                            : <div className='cde'>
+                                <div >
+                                <li><Link className='link myOrder' to="/myOrder">My Orders</Link></li>
+                                <li onClick={handleLogout} > <Link to="" className='link myOrder'>Log Out</Link></li>
+                                <li  onClick={()=>{setCartView(true)}}  className='cartbutton'>Cart  
+                                    <div className="badge">
+                                    <Badge pill bg="danger cartBadge">{data.length}</Badge>
+                                    </div>     
+                                </li>                      
+                                <div className='modelcart'>
+                                    {cartView? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
+                                </div>
+                                </div>
+                            </div>
+                        }
+                    </ol>
                         </header>
                     </div>
                 )
                    
                 }
 
-                <div className='toglebutton' onClick={togglebutton}>
-                    <button>
-                        {IsTogle ? <ImCross/>:<FaBars />}
-                    </button>
-                </div>
-            </header>
+               
             
-        </div>
-    </div>;
+    </>);
 }
 
 

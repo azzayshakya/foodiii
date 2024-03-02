@@ -71,7 +71,6 @@ border: none;
 
 @media(max-width:792px){
     .mid{
-        border: 2px blue solid;
         padding: 0px 20px;
     }
 

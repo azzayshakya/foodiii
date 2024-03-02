@@ -28,6 +28,8 @@
 .resturentpagemain ul{
     /* border: 2px red solid; */
     display: flex;
-    width: 1255px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }

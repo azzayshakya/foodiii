@@ -60,7 +60,7 @@ const RestOrder = () => {
     <div className='resturentorderpagemain'>
       <Header />
       <div>
-        <div className='yourrestorderheading' style={{color:"white"}}>Your restaurant orders :</div>
+        <div className='yourrestorderheading' style={{color:"white"}}>Your Restaurent Orders :</div>
         <div className='resturentpagemain'>
          
           {[...ordersByDate.keys()].map((date) => (

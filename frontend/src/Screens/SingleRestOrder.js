@@ -12,7 +12,7 @@ const SingleRestOrder = ({ item, onStateChange }) => {
   };
     return(
         
-        <li className='mainonecard' >           
+        <li className='Restaurentmainonecard' >           
      
         <div className='innerpart'>
 

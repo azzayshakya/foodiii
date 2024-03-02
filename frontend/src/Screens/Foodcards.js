@@ -46,7 +46,7 @@ const Foodcards = () => {
                   
          <img className="HeaderSearchImg" src="../Images/search.png" alt=""/>
          <input type="search" className='HeaderSearchInput'  placeholder="search for resturant,cuisine or a dish" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>     
-            
+    
   </div>
        
         <div className="container cardmain"> 
@@ -74,7 +74,7 @@ const Foodcards = () => {
                                             return (
 
                                             
-                                                <div key={filterItem._id} className='col-12 col-md-6 col-lg-4 b1'>
+                                                <div key={filterItem._id} className=' cardData col-12 col-md-6 col-lg-4 b1'>
                                                 
                                                 <Newcard foodItems={filterItem}
                                                 options={filterItem.options[0]}

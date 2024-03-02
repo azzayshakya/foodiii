@@ -1,4 +1,8 @@
 import React from 'react'
+import Css from '../Css/SingleOrder.css';
+import {} from '../Css/myorderpage.css'
+
+
 
 
 
@@ -10,7 +14,7 @@ const SingleOrder = ({  item, foodState , handleStateChange }) => {
         <div className='innerpart'>
 
          <p><img style={{ width: '280px', height: '200px', borderRadius: '52px' }} src={item.order.img} alt="hey it's your image" /></p>
-         <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>ID </div>:<div className='orderpagemaincontainer_rightside'>{item._id}</div></div>
+         {/* <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>ID </div>:<div className='orderpagemaincontainer_rightside'>{item._id}</div></div> */}
 
          
          <div className='orderpagemaincontainer'><div className='orderpagemaincontainer_leftside'>Name </div>:<div className='orderpagemaincontainer_rightside'>{item.order.name}</div></div>
