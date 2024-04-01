@@ -63,7 +63,7 @@ const RagisterResturent = () => {
         <div className="main">         
         <div className="login_form_container">
         <div className="login_form">
-          <h2 className='animate_animated animate_bounce animate_infineite'>Your Resturent</h2>
+          <h2 className='animate_animated animate_bounce animate_infineite'>Your Restaurent</h2>
           <div className="input_group">
               <i class="fa-solid fa-square-envelope"></i>
               <input
