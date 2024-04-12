@@ -42,33 +42,33 @@ router.post('/orderData',async(req,res)=>{
 // in a collection-3
 // order
 
-let eId = await Order.findOne({'email':req.body.email})
+// let eId = await Order.findOne({'email':req.body.email})
     
-    if(eId===null){
-        try{
-            await Order.create({
-                email:req.body.email,
-                order_data:[data]   
-            }).then(()=>{
-                res.json({success:true})
-            })
-        }catch(error){
-                console.log(error.message)
-                res.status(500).send("Server Error: " + error.message);
+//     if(eId===null){
+//         try{
+//             await Order.create({
+//                 email:req.body.email,
+//                 order_data:[data]   
+//             }).then(()=>{
+//                 res.json({success:true})
+//             })
+//         }catch(error){
+//                 console.log(error.message)
+//                 res.status(500).send("Server Error: " + error.message);
             
-        }
-    }
-    else{
-        try{
-            await  Order.findOneAndUpdate({email:req.body.email},
-                {$push:{order_data:data}}).then(()=>{
-                    res.json({success:true})
-                })
-        }
-        catch(error){
-            res.status(500).send("Server Error: " + error.message);
-        }
-    }
+//         }
+//     }
+//     else{
+//         try{
+//             await  Order.findOneAndUpdate({email:req.body.email},
+//                 {$push:{order_data:data}}).then(()=>{
+//                     res.json({success:true})
+//                 })
+//         }
+//         catch(error){
+//             res.status(500).send("Server Error: " + error.message);
+//         }
+//     }
 })
 
 module.exports=router;

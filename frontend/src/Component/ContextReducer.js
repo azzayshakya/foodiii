@@ -35,6 +35,25 @@ const reducer=(state,action)=>{
                 return empArray
 
 
+                case "UPDATE_STATE":
+    console.log("Initial state:", state);
+    console.log("Action ID:", action.id);
+    console.log("Action selectedState:", action.selectedState);
+    const newState = state.map(item => {
+        console.log("Item ID:", item._id);
+        if (item._id === action.id) {
+            return {
+                ...item,
+                selectedState: action.selectedState
+            };
+        } else {
+            return item;
+        }
+    });
+    console.log("New state after UPDATE_STATE:", newState);
+    return newState;
+
+
         default:
             console.log("Error in Reducer")
     }
@@ -61,4 +80,4 @@ export const CartProvider=({children})=>{
 };
 export const useCart =()=>useContext(CartStateContext);
 export const useDispatchCart =()=>useContext(CartDispatchContext)
-
+export { CartStateContext }; 

@@ -3,11 +3,15 @@ import SingleRestOrder from './SingleRestOrder';
 import Header from '../Component/Header'; 
 import SingleOrder from '../Screens/SingleOrder'
 import { ContactsOutlined } from '@mui/icons-material';
+import { useDispatchCart } from '../Component/ContextReducer';
 
 
 
 
 const RestOrder = () => {
+
+
+
   const [data, setData] = useState([]);
   const [ordersByDate, setOrdersByDate]   = useState(new Map());
   const [loading, setLoading] = useState(true);
@@ -19,26 +23,14 @@ const RestOrder = () => {
   const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
   return formattedDate;
   };
-  
-    // Add a state to store the states of all items
-    const [selectedStates, setSelectedStates] = useState({});
-    const [orderStates, setOrderStates] = useState({});
-
-    // Function to handle state changes
-    const handleStateChange = (id, newState) => {
-      setSelectedStates(prevStates => ({
-        ...prevStates,
-        [id]: newState
-      }));
-      console.log(newState ,id)
-    };
+ 
 
 
     useEffect(() => {
       const fetchData = async () => {
         try {
           setLoading(true);
-          let response = await fetch("https://foodiii.onrender.com/api/getOrderOfMyresturant", {
+          let response = await fetch("http://localhost:7000/api/getOrderOfMyresturant", {
             method: "GET"
           });
     
@@ -92,7 +84,7 @@ const RestOrder = () => {
               {ordersByDate.get(date).map((item, index) => (
 
                 <div key={index}>
-                  <SingleRestOrder item={item} onStateChange={handleStateChange} />
+                  <SingleRestOrder item={item} />
 
             
                 </div>

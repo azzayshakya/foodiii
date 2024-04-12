@@ -1,15 +1,17 @@
 import React, { memo, useState } from 'react';
+import { useDispatchCart } from '../Component/ContextReducer';
 
-const SingleRestOrder = ({ item, onStateChange }) => {
-  const [selectedState, setSelectedState] = useState('');
+const SingleRestOrder = ({ item }) => {
 
-  const handleStateChange = (e) => {
-    const newState = e.target.value;
-    setSelectedState(newState);
-    onStateChange(item._id, newState); 
-    // Pass the ID and the new state to the parent
-    
-  };
+    const dispatch = useDispatchCart();
+
+    const handleStateChange = (event) => {
+        const selectedState = event.target.value;
+        console.log(item._id,selectedState)
+        dispatch({ type: "UPDATE_STATE", id: item._id, selectedState }); // Dispatch action with id
+      };
+
+
     return(
         
         <li className='Restaurentmainonecard' >           
@@ -34,7 +36,7 @@ const SingleRestOrder = ({ item, onStateChange }) => {
             <label for="name">
                 which option best describe you ?
             </label>
-            <select name="" id="" value={selectedState} onChange={handleStateChange}>
+            <select name="" id="" onChange={handleStateChange}>
                         <option value="State" disabled hidden>State</option>
                         <option value="Pending">Pending</option>
                         <option value="Cooking">Cooking</option>

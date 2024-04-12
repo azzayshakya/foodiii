@@ -88,6 +88,7 @@
     
     margin: 20px;
     width:340px ;
+    /* width: 380px; */
     height: 540px;
     /* border: 2px red solid; */
     background-color: white;
@@ -102,7 +103,7 @@
 .mainonecard{
     border-radius: 52px;
     /* border: 2px rgb(213, 213, 213) solid; */
-    /* border: 2px black solid; */
+    /* border: 2px red solid; */
     
     margin: 20px;
     width:340px ;
