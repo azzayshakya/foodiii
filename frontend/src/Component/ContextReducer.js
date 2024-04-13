@@ -36,22 +36,15 @@ const reducer=(state,action)=>{
 
 
                 case "UPDATE_STATE":
-    console.log("Initial state:", state);
-    console.log("Action ID:", action.id);
-    console.log("Action selectedState:", action.selectedState);
-    const newState = state.map(item => {
-        console.log("Item ID:", item._id);
-        if (item._id === action.id) {
-            return {
-                ...item,
-                selectedState: action.selectedState
-            };
-        } else {
-            return item;
-        }
-    });
-    console.log("New state after UPDATE_STATE:", newState);
-    return newState;
+                    console.log(action.payload)
+
+                        return {
+                             ...state,
+                                selectedState: action.payload.selectedState,
+                                id:action.payload.id
+                    };
+                    
+                
 
 
         default:

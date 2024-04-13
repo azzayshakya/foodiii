@@ -41,7 +41,7 @@ const MyOrder = () => {
                     newOrdersByDate.get(date).push(order);
                 });
                 setOrdersByDate(newOrdersByDate);
-                console.log(newOrdersByDate)
+                // console.log(newOrdersByDate)
 
 
             } catch (error) {
@@ -74,11 +74,10 @@ const MyOrder = () => {
                                 </div>
                                 <ul className='myorderpageajay MyOrderPageCards' style={{ display: "" }}>
                                 {ordersByDate.get(date).map((item, index) => {
-                                        console.log("item._id:", item._id); // Log item._id
-                                        console.log("cartItems.id:", cartItems); // Log cartItems.id
+                                      
                                         return (
                                             <div key={index}>
-                                                <SingleOrder item={item} selectedState={item._id === cartItems.id ? cartItems.selectedState : null} />
+                                                <SingleOrder item={item} />
                                             </div>
                                         );
                                     })}

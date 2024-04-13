@@ -8,7 +8,7 @@ const SingleRestOrder = ({ item }) => {
     const handleStateChange = (event) => {
         const selectedState = event.target.value;
         console.log(item._id,selectedState)
-        dispatch({ type: "UPDATE_STATE", id: item._id, selectedState }); // Dispatch action with id
+        dispatch({ type: "UPDATE_STATE", payload:{id: item._id, selectedState }}); // Dispatch action with id
       };
 
 

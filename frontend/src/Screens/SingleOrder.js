@@ -2,8 +2,7 @@ import React, { memo, useState,useEffect } from 'react';
 import { useDispatchCart } from '../Component/ContextReducer';
 
 const SingleOrder = ({ item , selectedState  }) => {
-    const dispatch = useDispatchCart();
-    console.log("Selected State in SingleOrder:", selectedState);
+  
 
 
 
