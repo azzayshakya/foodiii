@@ -36,7 +36,7 @@ const reducer=(state,action)=>{
 
 
                 case "UPDATE_STATE":
-                    console.log(action.payload)
+                    // console.log(action.payload)
 
                         return {
                              ...state,

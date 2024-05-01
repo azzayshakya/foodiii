@@ -43,6 +43,9 @@ const SingleRestOrder = ({ item }) => {
                         <option value="Cancel">Cancel</option>
             </select>
         </div>
+        <div className="yourthought">
+            <p></p>
+        </div>
  
 
         </div>

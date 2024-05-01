@@ -26,7 +26,7 @@ const RagisterResturent = () => {
 
     e.preventDefault();
     console.log(JSON.stringify({resturentId:credentials.resturentId,MobileNo:credentials.MobileNo,password:credentials.password}))
-    const response = await fetch("http://localhost:7000/api/authenticateResturent",{
+    const response = await fetch("https://foodiii.onrender.com/api/authenticateResturent",{
       method :"POST",
       headers:{
         'Content-Type':'application/json'
