@@ -1,12 +1,8 @@
 import React, { memo, useState,useEffect } from 'react';
 import { useDispatchCart } from '../Component/ContextReducer';
 
-const SingleOrder = ({ item , selectedState  }) => {
-  
-
-
-
-   
+const SingleOrder = ({ item   }) => {
+    // console.log(item)   
     useEffect(() => {
 
         
@@ -19,10 +15,10 @@ const SingleOrder = ({ item , selectedState  }) => {
             <li className='myOrderPageMainOneCard'>
                 <div className=' '>
                     <img src={item.order.img} alt="hey it's your image" />
-                    <div className='orderpagemaincontainer'>
+                    {/* <div className='orderpagemaincontainer'>
                         <div className='orderpagemaincontainer_leftside'>Id </div>:
                         <div className='orderpagemaincontainer_rightside'>{item._id}</div>
-                    </div>
+                    </div> */}
                     <div className='orderpagemaincontainer'>
                         <div className='orderpagemaincontainer_leftside'>Qty </div>:
                         <div className='orderpagemaincontainer_rightside'>{item.order.qty}</div>
@@ -36,11 +32,9 @@ const SingleOrder = ({ item , selectedState  }) => {
                         <div className='orderpagemaincontainer_rightside'>{item.order.price}</div>
                     </div>
                     
-                    <div className="state-control">
-                        {
-                            selectedState
-                        }
-                      
+                    <div className='orderpagemaincontainer'>
+                        <div className='orderpagemaincontainer_leftside'>State </div>:
+                        <div className='orderpagemaincontainer_rightside'>{item.Order_State}</div>
                     </div>
                 </div>
             </li>

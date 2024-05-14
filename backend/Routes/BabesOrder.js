@@ -12,8 +12,6 @@ router.post('/YourOrder',async(req,res)=>{
         // console.log("heyy ",myData)       
         res.status(200).json({myData:myData});
         
-  
-        
       }
       catch(err){
         console.log(err)

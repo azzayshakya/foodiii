@@ -11,6 +11,11 @@ const OrderSchema = new Schema({
         type: Object,
         required: true,
     },
+    Order_State:{
+        type: String,
+        required:false,
+        default:"Ordered",
+    },
     MobileNo:{
         type: Number,
         required:true

@@ -35,14 +35,7 @@ const reducer=(state,action)=>{
                 return empArray
 
 
-                case "UPDATE_STATE":
-                    // console.log(action.payload)
-
-                        return {
-                             ...state,
-                                selectedState: action.payload.selectedState,
-                                id:action.payload.id
-                    };
+                
                     
                 
 

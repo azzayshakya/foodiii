@@ -5,11 +5,40 @@ const SingleRestOrder = ({ item }) => {
 
     const dispatch = useDispatchCart();
 
+    const [selectedState, setSelectedState] = useState(""); // State to store selected option value
+
     const handleStateChange = (event) => {
         const selectedState = event.target.value;
-        console.log(item._id,selectedState)
-        dispatch({ type: "UPDATE_STATE", payload:{id: item._id, selectedState }}); // Dispatch action with id
-      };
+        setSelectedState(selectedState); // Update selected state when dropdown value changes
+        console.log(item._id, selectedState);
+    }
+
+    //   const [selectedState, setSelectedState] = useState(""); // State to store selected option value
+
+    const handleStateSubmit = async () => {
+        try {
+            const response = await fetch("https://foodiii.onrender.com/api/UpdateState", {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    email: localStorage.getItem('userEmail'),
+                    id: item._id,
+                    Selected_State : selectedState
+                    
+                })
+            });
+            const data = await response.json();
+            // Handle response as needed
+        } catch (error) {
+            console.error('Error fetching orders:', error);
+        }
+    }
+
+    // const handleStateChange = (event) => {
+    //     setSelectedState(event.target.value); // Update selected state when dropdown value changes
+    // }
 
 
     return(
@@ -34,14 +63,15 @@ const SingleRestOrder = ({ item }) => {
             
         <div class="state-control">
             <label for="name">
-                which option best describe you ?
+            Tell me the state of the order ?
             </label>
             <select name="" id="" onChange={handleStateChange}>
                         <option value="State" disabled hidden>State</option>
-                        <option value="Pending">Pending</option>
                         <option value="Cooking">Cooking</option>
-                        <option value="Cancel">Cancel</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Delivered">Delivered</option>
             </select>
+            <button onClick={handleStateSubmit}>Submit</button>
         </div>
         <div className="yourthought">
             <p></p>
