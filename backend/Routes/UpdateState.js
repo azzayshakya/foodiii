@@ -14,10 +14,10 @@ router.put("/UpdateState", async (req, res) => {
             { new: true } 
         );
         if (updatedOrder) {
-            console.log("Order updated successfully:", updatedOrder);
+            // console.log("Order updated successfully:", updatedOrder);
             res.status(200).json({ success: true, message: "Order updated successfully" });
         } else {
-            console.log("Order not found or could not be updated");
+            // console.log("Order not found or could not be updated");
             res.status(404).json({ success: false, message: "Order not found or could not be updated" });
         }
     } catch (error) {

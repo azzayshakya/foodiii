@@ -6,7 +6,14 @@ const SingleRestOrder = ({ item }) => {
     const dispatch = useDispatchCart();
 
     const [selectedState, setSelectedState] = useState(""); // State to store selected option value
+    const [selectedFile, setSelectedFile] = useState(null);
 
+    const handleFileChange = (event) => {
+        setSelectedFile(event.target.files[0]); // Update selected file when file input changes
+    }
+    
+
+   
     const handleStateChange = (event) => {
         const selectedState = event.target.value;
         setSelectedState(selectedState); // Update selected state when dropdown value changes
@@ -25,7 +32,8 @@ const SingleRestOrder = ({ item }) => {
                 body: JSON.stringify({ 
                     email: localStorage.getItem('userEmail'),
                     id: item._id,
-                    Selected_State : selectedState
+                    Selected_State : selectedState,
+                    Video:selectedFile
                     
                 })
             });
@@ -36,9 +44,6 @@ const SingleRestOrder = ({ item }) => {
         }
     }
 
-    // const handleStateChange = (event) => {
-    //     setSelectedState(event.target.value); // Update selected state when dropdown value changes
-    // }
 
 
     return(
@@ -71,11 +76,10 @@ const SingleRestOrder = ({ item }) => {
                         <option value="Cancelled">Cancelled</option>
                         <option value="Delivered">Delivered</option>
             </select>
+            <input type="file" accept="video/*" onChange={handleFileChange} /> {/* File input for selecting video */}
             <button onClick={handleStateSubmit}>Submit</button>
         </div>
-        <div className="yourthought">
-            <p></p>
-        </div>
+       
  
 
         </div>

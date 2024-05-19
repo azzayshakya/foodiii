@@ -1,8 +1,8 @@
-import React, { useEffect, useState, memo } from 'react';
+import React, { useEffect, useState } from 'react';
 import SingleOrder from './SingleOrder';
 import Header from '../Component/Header';
 import Css from '../Css/SingleOrder.css';
-import {} from '../Css/myorderpage.css'
+import {} from '../Css/myorderpage.css';
 import { useCart } from '../Component/ContextReducer';
 
 const MyOrder = () => {
@@ -13,27 +13,36 @@ const MyOrder = () => {
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
-        const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
-        return formattedDate;
+        return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
     useEffect(() => {
         const fetchMyOrder = async () => {
+            const authToken = localStorage.getItem('authToken');
+            if (!authToken) {
+                console.error('No auth token found');
+                setLoading(false);
+                return;
+            }
+
             try {
                 setLoading(true);
                 let response = await fetch("https://foodiii.onrender.com/api/YourOrder", {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
                     },
                     body: JSON.stringify({
                         email: localStorage.getItem('userEmail')
                     })
                 });
-                response = await response.json();
-                setOrderData(response.myData);
+                
+                const jsonResponse = await response.json();
+                setOrderData(jsonResponse.myData);
+
                 const newOrdersByDate = new Map();
-                response.myData.forEach((order) => {
+                jsonResponse.myData.forEach((order) => {
                     const date = formatDate(order.date);
                     if (!newOrdersByDate.has(date)) {
                         newOrdersByDate.set(date, []);
@@ -41,8 +50,6 @@ const MyOrder = () => {
                     newOrdersByDate.get(date).push(order);
                 });
                 setOrdersByDate(newOrdersByDate);
-                // console.log(newOrdersByDate)
-
 
             } catch (error) {
                 console.error('Error fetching orders:', error);
@@ -55,9 +62,7 @@ const MyOrder = () => {
 
     return (
         <div className='myOrdersPageMain'>
-            <div>
-                <Header />
-            </div>
+            <Header />
             {loading ? (
                 <div className="DataLoading">
                     <h2>Data is loading !</h2>
@@ -66,21 +71,18 @@ const MyOrder = () => {
             ) : (
                 <div className="MyOrdersPageBeforeHistory">
                     <h3 className="yourorderheading">YOUR ORDER HISTORY..</h3>
-                    <div className=' MyOrdersPageBeforeDate'>
+                    <div className='MyOrdersPageBeforeDate'>
                         {[...ordersByDate.keys()].map((date) => (
                             <div key={date} className='Beforedate'>
                                 <div className="nine">
                                     <h1><span>{date}</span></h1>
                                 </div>
-                                <ul className='myorderpageajay MyOrderPageCards' style={{ display: "" }}>
-                                {ordersByDate.get(date).map((item, index) => {
-                                      
-                                        return (
-                                            <div key={index}>
-                                                <SingleOrder item={item} />
-                                            </div>
-                                        );
-                                    })}
+                                <ul className='myorderpageajay MyOrderPageCards'>
+                                    {ordersByDate.get(date).map((item, index) => (
+                                        <div key={index}>
+                                            <SingleOrder item={item} />
+                                        </div>
+                                    ))}
                                 </ul>
                             </div>
                         ))}

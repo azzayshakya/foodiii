@@ -21,7 +21,7 @@ const Login = () => {
     setShowPopup(true)
 
     e.preventDefault();
-    console.log(JSON.stringify({email:credentials.email,password:credentials.password}))
+    // console.log(JSON.stringify({email:credentials.email,password:credentials.password}))
     const response = await fetch("https://foodiii.onrender.com/api/loginuser",{
       
       method :"POST",
@@ -42,7 +42,7 @@ const Login = () => {
       setButton(true)
       localStorage.setItem("userEmail",credentials.email)
       localStorage.setItem("authToken",json.authToken)
-       navigate("/");
+      navigate("/");
     }
 
   }

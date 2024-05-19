@@ -15,10 +15,10 @@ const SingleOrder = ({ item   }) => {
             <li className='myOrderPageMainOneCard'>
                 <div className=' '>
                     <img src={item.order.img} alt="hey it's your image" />
-                    {/* <div className='orderpagemaincontainer'>
-                        <div className='orderpagemaincontainer_leftside'>Id </div>:
-                        <div className='orderpagemaincontainer_rightside'>{item._id}</div>
-                    </div> */}
+                    <div className='orderpagemaincontainer'>
+                        <div className='orderpagemaincontainer_leftside'>Name </div>:
+                        <div className='orderpagemaincontainer_rightside'>{item.order.name}</div>
+                    </div>
                     <div className='orderpagemaincontainer'>
                         <div className='orderpagemaincontainer_leftside'>Qty </div>:
                         <div className='orderpagemaincontainer_rightside'>{item.order.qty}</div>

@@ -85,7 +85,7 @@ const Header = () => {
                         <li> <Link className='link myOrder' to="/"><div className='Headericons'><FaHome/></div>Home</Link></li>
                         
                         {(!localStorage.getItem("authToken2")) ?                   
-                            <li><Link className='link myOrder' to="/RagisterResturent">Your_Resturent</Link></li>                   
+                            <li><Link className='link myOrder' to="/RagisterResturent">Your_Restaurent</Link></li>                   
                             :<li><Link className='link myOrder' to="/RestOrder">Restaurant_Orders</Link></li>}
                         {(!localStorage.getItem("authToken")) ?
                             <div className='abc'>
