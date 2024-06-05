@@ -4,11 +4,13 @@ import { Badge } from 'react-bootstrap-v5';
 import Cart from '../Screens/Cart';
 import Modal from '../Modal';
 import { useCart } from './ContextReducer';
-import {} from '../Css/Header.css'
+import '../Css/Header.css'
 import { GraphicEq } from '@mui/icons-material';
 import { ImCross } from "react-icons/im";
 import { FaBars } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
+
+import { FaCartArrowDown } from "react-icons/fa";
 
 const Header = () => {
 
@@ -53,14 +55,22 @@ const Header = () => {
                                 <div >
                                 <li><Link className='link myOrder' to="/myOrder">My Orders</Link></li>
                                 <li onClick={handleLogout} > <Link to="" className='link myOrder'>Log Out</Link></li>
-                                <li  onClick={()=>{setCartView(true)}}  className='cartbutton'>Cart  
+                               
+                                <div className="n_cart_here">
+                                    <span>
+                                        <FaCartArrowDown/>
+                                    </span>
+                                <div  onClick={()=>{setCartView(true)}}  className='cartbutton'>Cart  
                                     <div className="badge">
-                                    <Badge pill bg="danger cartBadge">{data.length}</Badge>
+                                    <Badge pill bg="danger cartBadge ">{data.length}</Badge>
                                     </div>     
-                                </li>                      
+                                </div>                      
                                 <div className='modelcart'>
                                     {cartView? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
                                 </div>
+                                </div>
+                                
+                                
                                 </div>
                             </div>
                         }
@@ -97,14 +107,14 @@ const Header = () => {
                                 <div >
                                 <li><Link className='link myOrder' to="/myOrder">My Orders</Link></li>
                                 <li onClick={handleLogout} > <Link to="" className='link myOrder'>Log Out</Link></li>
-                                <li  onClick={()=>{setCartView(true)}}  className='cartbutton'>Cart  
+                                {/* <li  onClick={()=>{setCartView(true)}}  className='cartbutton'>Cart  
                                     <div className="badge">
                                     <Badge pill bg="danger cartBadge">{data.length}</Badge>
                                     </div>     
-                                </li>                      
-                                <div className='modelcart'>
+                                </li>                       */}
+                                {/* <div className='modelcart'>
                                     {cartView? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
-                                </div>
+                                </div> */}
                                 </div>
                             </div>
                         }

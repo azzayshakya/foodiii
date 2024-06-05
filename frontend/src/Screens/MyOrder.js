@@ -4,8 +4,11 @@ import Header from '../Component/Header';
 import Css from '../Css/SingleOrder.css';
 import {} from '../Css/myorderpage.css';
 import { useCart } from '../Component/ContextReducer';
-
+import { useNavigate } from 'react-router-dom';
+// import fetchWithAuth from "../Component/authApi";
+// import useAuthApi from "../Component/authApi";
 const MyOrder = () => {
+    const navigate= useNavigate();
     const [orderData, setOrderData] = useState([]);
     const [ordersByDate, setOrdersByDate] = useState(new Map());
     const [loading, setLoading] = useState(true);
@@ -20,43 +23,53 @@ const MyOrder = () => {
         const fetchMyOrder = async () => {
             const authToken = localStorage.getItem('authToken');
             if (!authToken) {
-                console.error('No auth token found');
-                setLoading(false);
-                return;
+              console.error('No auth token found');
+              setLoading(false);
+              navigate('/login');
+              return;
             }
-
+      
             try {
-                setLoading(true);
-                let response = await fetch("https://foodiii.onrender.com/api/YourOrder", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
-                    },
-                    body: JSON.stringify({
-                        email: localStorage.getItem('userEmail')
-                    })
-                });
-                
-                const jsonResponse = await response.json();
-                setOrderData(jsonResponse.myData);
 
-                const newOrdersByDate = new Map();
-                jsonResponse.myData.forEach((order) => {
-                    const date = formatDate(order.date);
-                    if (!newOrdersByDate.has(date)) {
-                        newOrdersByDate.set(date, []);
-                    }
-                    newOrdersByDate.get(date).push(order);
-                });
-                setOrdersByDate(newOrdersByDate);
+              setLoading(true);
+              let response = await fetch("http://localhost:7000/api/YourOrder", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${authToken}`
+                },
+                body: JSON.stringify({
+                  email: localStorage.getItem('userEmail')
+                })
+              });
+      
+              if (response.status === 403) {
+                // Token is invalid, redirect to login
+                localStorage.removeItem('authToken');
+                navigate('/login');
+                return;
+              }
 
+              const jsonResponse = await response.json();
+              setOrderData(jsonResponse.myData);
+          
+              const newOrdersByDate = new Map();
+              jsonResponse.myData.forEach((order) => {
+                const date = formatDate(order.date);
+                if (!newOrdersByDate.has(date)) {
+                  newOrdersByDate.set(date, []);
+                }
+                newOrdersByDate.get(date).push(order);
+              });
+              setOrdersByDate(newOrdersByDate);
+          
             } catch (error) {
-                console.error('Error fetching orders:', error);
+              console.error('Error fetching orders:', error);
             } finally {
-                setLoading(false);
+              setLoading(false);
             }
-        };
+          };
+          
         fetchMyOrder();
     }, []);
 

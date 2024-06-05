@@ -4,7 +4,7 @@ import Header from '../Component/Header';
 import SingleOrder from '../Screens/SingleOrder'
 import { ContactsOutlined } from '@mui/icons-material';
 import { useDispatchCart } from '../Component/ContextReducer';
-
+import "../Css/ragisterresturentpage.css"
 
 
 
@@ -32,7 +32,7 @@ const RestOrder = () => {
       const fetchData = async () => {
         try {
           setLoading(true);
-          let response = await fetch("https://foodiii.onrender.com/api/getOrderOfMyresturant", {
+          let response = await fetch("http://localhost:7000/api/getOrderOfMyresturant", {
             method: "GET"
           });
     
@@ -102,3 +102,39 @@ const RestOrder = () => {
 };
 
 export default memo(RestOrder);
+
+// const fetchData = async () => {
+//   try {
+//     setLoading(true);
+//     const authToken2 = localStorage.getItem("authToken2");
+
+//     let response = await fetch("http://localhost:7000/api/getOrderOfMyresturant", {
+//       method: "GET",
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${authToken2}`
+//       }
+//     });
+
+//     setLoading(false);
+
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch data");
+//     }
+
+//     response = await response.json();
+//     setData(response.data);
+//     const newOrdersByDate = new Map();
+//     response.data.forEach((order) => {
+//       const date = formatDate(order.date);
+//       if (!newOrdersByDate.has(date)) {
+//         newOrdersByDate.set(date, []);
+//       }
+//       newOrdersByDate.get(date).push(order);
+//     });
+//     setOrdersByDate(newOrdersByDate);
+//   } catch (error) {
+//     setLoading(false);
+//     console.log(error);
+//   }
+// };

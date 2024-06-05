@@ -1,15 +1,19 @@
+.homemain{
+    /* height: 711px; */
 
+    /* border: 2px red solid; */
+}
 
 .BottomHeader{
     /* border: 2px red solid; */
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 .BottomHeaderimg{ 
     background: url("../Images/hero-slider-1.jpg");
     width: 100%;
 
-    height: 711px;
+    height: 100vh;
 
     background-position: center;
     background-size: cover;
