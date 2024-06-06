@@ -20,7 +20,7 @@ const Login = () => {
     console.log(JSON.stringify({ resturentId: credentials.resturentId, MobileNo: credentials.MobileNo, password: credentials.password }));
 
     try {
-      const response = await fetch("http://localhost:7000/api/authenticateResturent", {
+      const response = await fetch("https://foodiii.onrender.com/api/authenticateResturent", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

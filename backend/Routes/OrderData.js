@@ -8,7 +8,7 @@ const { ContentCopy, Email } = require("@mui/icons-material");
 router.post('/orderData',async(req,res)=>{
 
 
-    console.log("data ordering is  here")
+    // console.log("data ordering is  here")
 
 // in a collection-1
 // Order4r

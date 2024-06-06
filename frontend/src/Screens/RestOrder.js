@@ -32,7 +32,7 @@ const RestOrder = () => {
       const fetchData = async () => {
         try {
           setLoading(true);
-          let response = await fetch("http://localhost:7000/api/getOrderOfMyresturant", {
+          let response = await fetch("https://foodiii.onrender.com/api/getOrderOfMyresturant", {
             method: "GET"
           });
     

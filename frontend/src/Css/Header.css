@@ -76,8 +76,29 @@ li{
     background-color: red;
     border: 2px red solid;
     position: absolute;
+    top: 85vh;
+    right: 10vh;
+   
+    
+   border-radius: 20%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 2vh;
+   z-index: 1000;
+   cursor: pointer;
+
+}
+.n_cart_here span{
+    font-size: 15px;
+}
+.n_cart_here_mobile{
+    background-color: red;
+    border: 2px red solid;
+    position: absolute;
     top: 80vh;
     right: 10vh;
+    /* bottom: 2vh; */
    border-radius: 20%;
    display: flex;
    flex-direction: column;
@@ -86,10 +107,9 @@ li{
    z-index: 100;
 
 }
-.n_cart_here span{
+.n_cart_here_mobile span{
     font-size: 15px;
 }
-
 
 
 .efg li{

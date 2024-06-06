@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 app.use('/api/', require('./Routes/refreshToken'));
 app.use('/api/', require('./Routes/CreateUser'));
 app.use('/api/', require('./Routes/foodData'));
-app.use('/api/',authenticateToken, require('./Routes/OrderData'));
+app.use('/api/', require('./Routes/OrderData'));
 app.use('/api/',authenticateToken, require('./Routes/BabesOrder'));
 app.use('/api/', require('./Routes/RestOrder'));
 app.use('/api/', require('./Routes/UpdateState'));

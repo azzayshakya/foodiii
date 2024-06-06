@@ -32,7 +32,7 @@ const MyOrder = () => {
             try {
 
               setLoading(true);
-              let response = await fetch("http://localhost:7000/api/YourOrder", {
+              let response = await fetch("https://foodiii.onrender.com/api/YourOrder", {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
