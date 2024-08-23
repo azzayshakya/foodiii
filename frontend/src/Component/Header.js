@@ -63,8 +63,7 @@ const Header = () => {
                                     </div>
                                 </div>
                             }
-                        </ol>
-                        
+                        </ol>                     
                         <div className='toglebutton' onClick={togglebutton}>
                             <button>
                                 {IsTogle ? <ImCross/> : <FaBars />}

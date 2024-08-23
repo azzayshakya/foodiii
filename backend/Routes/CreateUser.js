@@ -18,8 +18,9 @@
 
   router.post("/creatuser", [
     body('email').isEmail(),
-    body('name').isLength({ min: 5 }),
-    body('password', 'Incorrect passoword').isLength({ min: 5 })] ,
+    body('name').isLength({ min: 5 })
+    // body('password', 'Incorrect passoword').isLength({ min: 5 })
+  ] ,
 
     
     async (req, res) => {
