@@ -15,7 +15,7 @@ const Foodcards = () => {
     const loadData = async () => {
         try {
             setLoading(true);
-            let response = await fetch("https://foodiii-backend-ajay17s-projects.vercel.app/api/foodData", {
+            let response = await fetch("https://foodiii-backend-ajay17s-projects.vercel.app//api/foodData", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
