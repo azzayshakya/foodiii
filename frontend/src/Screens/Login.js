@@ -22,7 +22,7 @@ const Login = () => {
 
     e.preventDefault();
     // console.log(JSON.stringify({email:credentials.email,password:credentials.password}))
-    const response = await fetch("https://foodiii-tr46-4es91djp8-ajay17s-projects.vercel.app/api/loginuser",{
+    const response = await fetch("https://foodiii.onrender.com/api/loginuser",{
       
       method :"POST",
       headers:{

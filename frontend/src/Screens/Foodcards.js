@@ -13,19 +13,34 @@ const Foodcards = () => {
 
     
     const loadData = async () => {
-        setLoading(true);
-        let response = await fetch("https://foodiii-tr46.vercel.app/api/foodData", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+        try {
+            setLoading(true);
+            let response = await fetch("https://foodiii.onrender.com/api/foodData", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        });
-        setLoading(false);
-        response = await response.json();
-
-        setfoodItems(response[0]);
-        setfoodCat(response[1]);
+    
+            const data = await response.json();
+            setLoading(false);
+    
+            if (data && data.length >= 2) {
+                setfoodItems(data[0] || []); // Use an empty array as fallback
+                setfoodCat(data[1] || []);   // Use an empty array as fallback
+            } else {
+                console.error("Unexpected data format:", data);
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setLoading(false);
+        }
     };
+    
 
     useEffect(() => {
         loadData();
@@ -34,8 +49,9 @@ const Foodcards = () => {
     const regexFilter = useCallback(() => {
         const fuzzyPattern = search.split('').join('.*');
         const regex = new RegExp(`.*${fuzzyPattern}.*`, 'i');
-        return foodItems.filter(item => regex.test(item.name));
+        return (foodItems || []).filter(item => regex.test(item.name));
     }, [search, foodItems]);
+    
 
     const filteredItems = regexFilter();
 

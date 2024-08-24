@@ -9,7 +9,7 @@ const mongoDB = require('./db');
 mongoDB();
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://foodiii.vercel.app","*"],
+  origin: ["http://localhost:3000", "https://foodiii.vercel.app", "*"],
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true, 
 }));
