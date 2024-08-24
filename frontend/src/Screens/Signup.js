@@ -42,7 +42,7 @@ const Signup = () => {
     setButton(false);
     setShowPopup(true);
 
-    const response = await fetch("https://foodiii.onrender.com/api/creatuser", {
+    const response = await fetch("https://foodiii-tr46-4es91djp8-ajay17s-projects.vercel.app/api/creatuser", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

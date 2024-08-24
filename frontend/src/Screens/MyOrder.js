@@ -32,7 +32,7 @@ const MyOrder = () => {
             try {
 
               setLoading(true);
-              let response = await fetch("https://foodiii.onrender.com/api/YourOrder", {
+              let response = await fetch("https://foodiii-tr46-4es91djp8-ajay17s-projects.vercel.app/api/YourOrder", {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

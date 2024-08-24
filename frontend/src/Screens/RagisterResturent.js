@@ -20,7 +20,7 @@ const Login = () => {
     console.log(JSON.stringify({ resturentId: credentials.resturentId, MobileNo: credentials.MobileNo, password: credentials.password }));
 
     try {
-      const response = await fetch("https://foodiii.onrender.com/api/authenticateResturent", {
+      const response = await fetch("https://foodiii-tr46-4es91djp8-ajay17s-projects.vercel.app/api/authenticateResturent", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

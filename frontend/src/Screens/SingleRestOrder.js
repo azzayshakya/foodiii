@@ -23,7 +23,7 @@ const SingleRestOrder = ({ item }) => {
     
     const handleStateSubmit = async () => {
         try {
-            const response = await fetch("https://foodiii.onrender.com/api/UpdateState", {
+            const response = await fetch("https://foodiii-tr46-4es91djp8-ajay17s-projects.vercel.app/api/UpdateState", {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

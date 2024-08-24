@@ -14,7 +14,7 @@ const Foodcards = () => {
     
     const loadData = async () => {
         setLoading(true);
-        let response = await fetch("https://foodiii.onrender.com/api/foodData", {
+        let response = await fetch("https://foodiii-tr46.vercel.app/api/foodData", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
