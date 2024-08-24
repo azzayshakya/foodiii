@@ -32,7 +32,7 @@ const RestOrder = () => {
       const fetchData = async () => {
         try {
           setLoading(true);
-          let response = await fetch("https://foodiii-tr46-4es91djp8-ajay17s-projects.vercel.app/api/getOrderOfMyresturant", {
+          let response = await fetch("https://foodiii.onrender.com/api/getOrderOfMyresturant", {
             method: "GET"
           });
     
