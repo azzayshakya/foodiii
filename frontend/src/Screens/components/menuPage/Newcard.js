@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatchCart, useCart } from "../Component/ContextReducer";
-import "../Css/Foodcards.css";
+import { useDispatchCart, useCart } from "../../../Component/ContextReducer";
+import "../../../Css/Foodcards.css";
 
-const Newcard = (props) => {
+const MenuPageCard = (props) => {
   let data = useCart();
   let foodItem = props.foodItems;
   let dispatch = useDispatchCart();
@@ -89,4 +89,4 @@ const Newcard = (props) => {
   );
 };
 
-export default Newcard;
+export default MenuPageCard;

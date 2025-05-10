@@ -1,7 +1,7 @@
 import "../Css/Foodcards.css";
 import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "../Component/Navbar";
-import Newcard from "../Component/Newcard";
+import MenuPageCard from "./components/menuPage/Newcard";
 
 const FoodMenu = () => {
   const [search, setSearch] = useState("");
@@ -121,7 +121,7 @@ const FoodMenu = () => {
                         .filter((item) => item.CategoryName === activeCategory)
                         .map((filterItem) => (
                           <div key={filterItem._id} className="food-item-card">
-                            <Newcard
+                            <MenuPageCard
                               foodItems={filterItem}
                               options={filterItem.options[0]}
                             />
