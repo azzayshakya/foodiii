@@ -1,4 +1,4 @@
-import "../Css/Foodcards.css";
+import "../Css/FoodMenuPage.css";
 import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "../Component/Navbar";
 import MenuPageCard from "./components/menuPage/Newcard";

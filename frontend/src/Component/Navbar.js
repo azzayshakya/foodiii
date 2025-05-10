@@ -3,7 +3,7 @@ import "../Css/Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "react-bootstrap-v5";
 import Modal from "../Modal";
-import Cart from "../Screens/Cart";
+import Cart from "./Cart";
 import { useCart } from "./ContextReducer";
 import "../Css/Header.css";
 

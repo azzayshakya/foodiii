@@ -1,4 +1,4 @@
-import "../Css/ragisterresturentpage.css";
+// import "../Css/ragisterresturentpage.css";
 import React, { useEffect, useState, memo } from "react";
 import Navbar from "../Component/Navbar";
 import "../Css/RestaurentOrdersPage.css";

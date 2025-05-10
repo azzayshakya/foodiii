@@ -1,4 +1,4 @@
-import "../../../Css/myorderpage.css";
+import "../../../Css/MyOrderPage.css";
 
 const MyOrdersPageCard = ({ item }) => {
   const getStatusClass = () => {
@@ -16,7 +16,7 @@ const MyOrdersPageCard = ({ item }) => {
     if (status === "preparing") return "👨‍🍳";
     if (status === "on the way") return "🚚";
     if (status === "cancelled") return "✕";
-    return "⏳"; // default
+    return "⏳"; 
   };
 
   return (
@@ -59,7 +59,6 @@ const MyOrdersPageCard = ({ item }) => {
           <span className="price-value">₹{item.order.price}</span>
         </div>
 
-        {/* <button className="reorder-btn">Reorder</button> */}
       </div>
     </div>
   );

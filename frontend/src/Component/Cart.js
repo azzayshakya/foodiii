@@ -1,4 +1,4 @@
-import { useCart, useDispatchCart } from "../Component/ContextReducer";
+import { useCart, useDispatchCart } from "./ContextReducer";
 import "../Css/Cart.css";
 import { FaTrashAlt, FaCheck, FaShoppingBasket } from "react-icons/fa";
 

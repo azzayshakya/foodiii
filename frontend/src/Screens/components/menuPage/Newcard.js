@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatchCart, useCart } from "../../../Component/ContextReducer";
-import "../../../Css/Foodcards.css";
+import "../../../Css/FoodMenuPage.css";
 
 const MenuPageCard = (props) => {
   let data = useCart();
