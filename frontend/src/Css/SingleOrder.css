@@ -1,209 +1,120 @@
-.myOrderDataPage{
-    /* border: 2px red solid; */
-    
+/* Main Container */
+.myOrdersPageMain {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Loader State */
+.DataLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.loader {
+  border: 6px solid #e0e0e0;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Order Page Heading */
 .yourorderheading {
-    color: white;
-    margin-top: 50px;
-    
-}
-.yourrestorderheading{
-    font-size: 30px;
-}
-
-
-.qwer{
-    /* background-color: #676971; */
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #222;
 }
 
-    .mmm{
-    /* border: 2px blue solid; */
-
+/* Date Group Container */
+.Beforedate {
+  margin-bottom: 3rem;
 }
 
-.maincontain{
-    /* border: 2px red solid; */
-
-    margin-top: 50px;
-    padding-bottom: 50px;
-    /* background-color: white; */
-
-    
-    border: 2px rgb(172, 170, 170) solid;
-
-    width: 1230px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-    
+.Beforedate h1 span {
+  font-size: 1.4rem;
+  color: #007bff;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
 }
 
-.maincontain .date{
-
-   font-size:40px;
-
-
-
+/* Order Cards Group */
+.MyOrderPageCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-left: 0;
+  list-style: none;
 }
 
-.nine h1 {
-    text-align:center; font-size:50px; text-transform:uppercase; color:#222; letter-spacing:1px;
-    font-family:"Playfair Display", serif; font-weight:400;
+/* Single Order Card */
+.myOrderPageMainOneCard {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.myOrderPageMainOneCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.myOrderPageMainOneCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Order Details */
+.orderpagemaincontainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4px 0;
+  font-size: 0.95rem;
+}
+
+.orderpagemaincontainer_leftside {
+  color: #555;
+  font-weight: 500;
+}
+
+.orderpagemaincontainer_rightside {
+  color: #222;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .MyOrderPageCards {
+    flex-direction: column;
+    align-items: center;
   }
-  .nine h1 span {
-    margin-top: 5px;
-      font-size:15px; color:#444; word-spacing:1px; font-weight:normal; letter-spacing:2px;
-      text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
-  
-      display: grid;
-      grid-template-columns: 1fr max-content 1fr;
-      grid-template-rows: 27px 0;
-      grid-gap: 20px;
-      align-items: center;
-      color: white;
+
+  .myOrderPageMainOneCard {
+    width: 90%;
   }
-  
-  .nine h1 span:after,.nine h1 span:before {
-      content: " ";
-      display: block;
-      border-bottom: 1px solid #ccc;
-      border-top: 1px solid #ccc;
-      height: 5px;
-    background-color:#f8f8f8;
-  }
-.singleMainDate{
-    /* border: 2px red solid; */
-    margin-top:10px;
-    border-bottom: 2px black solid;
-
-}
-
-/* .maincontain{
-    border: 2px   blue solid;
-} */
-
-.Restaurentmainonecard{
-    border-radius: 52px;
-    /* border: 2px rgb(213, 213, 213) solid; */
-    /* border: 2px black solid; */
-    
-    margin: 20px;
-    width:340px ;
-    /* width: 380px; */
-    height: 540px;
-    /* border: 2px red solid; */
-    background-color: white;
-    /* border: 2px blue solid; */
-    background: rgba( 255, 255, 255, 0.4);
-   backdrop-filter:blur(10px) ;
-
-   
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
-}
-.mainonecard{
-    border-radius: 52px;
-    /* border: 2px rgb(213, 213, 213) solid; */
-    /* border: 2px red solid; */
-    
-    margin: 20px;
-    width:340px ;
-    height: 500px;
-    border: 2px red solid;
-    background-color: white;
-    /* border: 2px blue solid; */
-    background: rgba( 255, 255, 255, 0.4);
-   backdrop-filter:blur(10px) ;
-
-   
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-.mainonecard:hover{
-    /* box-shadow: none; */
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
-
-
-}
-
-.innerpart{
-    margin-top: 30px;
-    /* border: px blue solid; */
-
-}
-
-.mainonecard p{
-    /* border: 2px red solid; */
-
-
-    /* bahi par css hai jaha elemnet hai  */
-    font-size: 20px;
-    text-align: center;
-    
-}
-.mainonecard img{
-    /* border: 2px red solid;
-    border-radius: 52px;
-    z-index: 200; */
-}
-.orderpagemaincontainer{
-    display: flex;
-    margin: 5px 0px;
-}
-
-.orderpagemaincontainer_leftside{
-    color: white;
-    background-color: red;
-    padding: 0px 5px;
-    border-radius: 10px 0px 0px 10px;
-    margin-right: 9px;
-    min-width: 90px;
-    text-align: center;
-    /* border: 2px blue solid; */
-    height: 26px;
-
-}
-.orderpagemaincontainer_rightside{
-    margin-left: 4px;
-    
-    color: black;
-    /* border: 2px blue solid; */
-  
-
-}
-
-.orderpagemaincontainer_rightside span{
-    /* border: 2px blue solid; */
-    font-size: 13px;
-    
-}
-
-.state-control {
-    border-top:1px black solid;
-    margin-top:10px;
-    padding-top: 2px;
-}
-
-
-.state-control label{
-
-    color:white;
-    /* border: 2px red solid; */
-}
-.state-control select{
-    background-color: red;
-    color: white;
-    padding: 3px;
-    border-radius: 10px 0px 0px 10px;
- }
-
- 
-.state-control button{
- /* border: 2px red solid;    */
- width: 80px;
- margin-left: 10px;
- border-radius: 0px 10px 10px 0px;
- border: none;
- font-weight: 500;
-
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, memo } from 'react';
 import SingleRestOrder from './SingleRestOrder';
-import SingleOrder from '../Screens/SingleOrder'
 import { ContactsOutlined } from '@mui/icons-material';
 import { useDispatchCart } from '../Component/ContextReducer';
 import "../Css/ragisterresturentpage.css"
