@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { TbHandClick } from "react-icons/tb";
-import "../Css/HeroSection.css";
-import Navbar from "./Navbar";
+import "../../../Css/HeroSection.css";
 
 
+import Navbar from "../../../Component/Navbar"
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
