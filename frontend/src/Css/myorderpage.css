@@ -30,6 +30,7 @@
 .my-orders-title-container {
   padding: 30px 20px;
   text-align: center;
+  padding-top: 100px;
 }
 
 .my-orders-title h1 {
@@ -343,6 +344,7 @@
 @media (max-width: 576px) {
   .my-orders-title-container {
     padding: 20px 15px;
+    padding-top: 100px;
   }
   
   .my-orders-title h1 {

@@ -22,9 +22,11 @@
   padding: 20px 0;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
+  padding-top: 100px;
 }
 
 .search-container {
+
   display: flex;
   justify-content: center;
   padding: 20px 0;
@@ -325,6 +327,7 @@
 @media (max-width: 400px) {
   .food-menu-header {
     padding: 15px 0;
+    padding-top: 100px;
   }
 
   .search-container {
