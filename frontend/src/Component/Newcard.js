@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useDispatchCart, useCart } from '../Component/ContextReducer';
-import css from '../Css/Foodcards.css'
-
-const propTypes = {};
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatchCart, useCart } from "../Component/ContextReducer";
+import "../Css/Foodcards.css";
 
 const Newcard = (props) => {
   let data = useCart();
@@ -12,59 +10,83 @@ const Newcard = (props) => {
   let options = props.options;
   let priceOptions = Object.keys(options);
   const priceRef = useRef();
-  const [qty, setQty] = useState(1)
-  const [size, setSize] = useState("")
+  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
 
-  const handleAddToCart =async()=>{
-
-  await dispatch({type:"ADD",id:props.foodItems._id, name:props.foodItems.name,img:props.foodItems.img,price:finalPrice, qty:qty,size:size})
-  }
+  const handleAddToCart = async () => {
+    await dispatch({
+      type: "ADD",
+      id: props.foodItems._id,
+      name: props.foodItems.name,
+      img: props.foodItems.img,
+      price: finalPrice,
+      qty: qty,
+      size: size,
+    });
+  };
 
   let finalPrice = qty * parseInt(options[size]);
+
   useEffect(() => {
-    setSize(priceRef.current.value)
-  }, [])
+    setSize(priceRef.current.value);
+  }, []);
 
-  return <div>
-    <div class="card mt-3 cardmainhover" style={{ "width": "18rem", "maxHeight": "500px" }}  >
-      <div className="B-image " >
-        <img src={props.foodItems.img} style={{
-          height: "180px",
-          width: "100%",
-          borderTopLeftRadius: "5px",
-          borderTopRightRadius: "5px"
-        }} alt="" />
-  
+  return (
+    <div className="food-card">
+      <div className="food-card-img">
+        <img src={props.foodItems.img} alt={props.foodItems.name} />
       </div>
-      
-      <div class="card-body ">
-        <h5 class="card-title">{props.foodItems.name}</h5>
-        <div className="container w-100">
-          <select name="" className='m-2 h-100 bg-success rounded' id="" onChange={(e) => setQty(e.target.value)}>{
-            Array.from(Array(6), (e, i) => {
-              return (
-                <option value={i + 1} key={i + 1}>{i + 1}</option>
-              )
-            })}
-          </select>
-
-          <select name="" className='m-2 h-100 bg-success rounded' id="seound" ref={priceRef} onChange={(e) => setSize(e.target.value)}>
-            {priceOptions.map((data) => {
-              return <option key={data} value={data}>{data}</option>
-            })}
-          </select>
-          <div className="d-inline h-100 fs-5">
-            {finalPrice}/-
+      <div className="food-card-content">
+        <h3>{props.foodItems.name}</h3>
+        <div className="food-card-details">
+          <div className="food-card-rating">
+            <span>★</span>
+            <span>{props.foodItems.rating || "4.5"}</span>
           </div>
-          <hr className='hrtag'/>
-          <button className='addtocartbutton' onClick={handleAddToCart} >Add To Cart</button>
+          <div className="food-card-price">₹{finalPrice}</div>
         </div>
 
+        {props.foodItems.description && (
+          <p className="food-card-description">{props.foodItems.description}</p>
+        )}
+
+        <div className="food-card-options">
+          <div className="quantity-selector">
+            <select
+              className="quantity-select"
+              onChange={(e) => setQty(e.target.value)}
+              value={qty}
+            >
+              {Array.from(Array(6), (e, i) => (
+                <option value={i + 1} key={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="size-selector">
+            <select
+              className="size-select"
+              ref={priceRef}
+              onChange={(e) => setSize(e.target.value)}
+              value={size}
+            >
+              {priceOptions.map((data) => (
+                <option key={data} value={data}>
+                  {data}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <button className="add-to-cart-btn" onClick={handleAddToCart}>
+          Add to Cart <span>+</span>
+        </button>
       </div>
     </div>
+  );
+};
 
-
-  </div>;
-}
-Newcard.propTypes = propTypes;
 export default Newcard;

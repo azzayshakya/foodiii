@@ -1,105 +1,153 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import css from '../Css/Foodcards.css';
-import Footer from '../Component/Footer';
-import Newcard from '../Component/Newcard';
-import { Link } from 'react-router-dom';
-import Navbar from '../Component/Navbar';
+import "../Css/Foodcards.css";
+import React, { useState, useEffect, useCallback } from "react";
+import Navbar from "../Component/Navbar";
+import Newcard from "../Component/Newcard";
 
-const Foodcards = () => {
-    const [search, setSearch] = useState("");
-    const [foodCat, setfoodCat] = useState([]);
-    const [foodItems, setfoodItems] = useState([]);
-    const [loading, setLoading] = useState(true);
+const FoodMenu = () => {
+  const [search, setSearch] = useState("");
+  const [foodCat, setFoodCat] = useState([]);
+  const [foodItems, setFoodItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState(null);
 
-    
-    const loadData = async () => {
-        try {
-            setLoading(true);
-            let response = await fetch("https://foodiii.onrender.com/api/foodData", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-    
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-    
-            const data = await response.json();
-            setLoading(false);
-    
-            if (data && data.length >= 2) {
-                setfoodItems(data[0] || []); // Use an empty array as fallback
-                setfoodCat(data[1] || []);   // Use an empty array as fallback
-            } else {
-                console.error("Unexpected data format:", data);
-            }
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            setLoading(false);
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      let response = await fetch("https://foodiii.onrender.com/api/foodData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      setLoading(false);
+
+      if (data && data.length >= 2) {
+        setFoodItems(data[0] || []); // Use an empty array as fallback
+        setFoodCat(data[1] || []); // Use an empty array as fallback
+        // Set first category as active by default if categories exist
+        if (data[1] && data[1].length > 0) {
+          setActiveCategory(data[1][0].CategoryName);
         }
-    };
-    
+      } else {
+        console.error("Unexpected data format:", data);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
 
-    useEffect(() => {
-        loadData();
-    }, []);
+  useEffect(() => {
+    loadData();
+  }, []);
 
-    const regexFilter = useCallback(() => {
-        const fuzzyPattern = search.split('').join('.*');
-        const regex = new RegExp(`.*${fuzzyPattern}.*`, 'i');
-        return (foodItems || []).filter(item => regex.test(item.name));
-    }, [search, foodItems]);
-    
+  const regexFilter = useCallback(() => {
+    if (!search.trim()) return foodItems;
 
-    const filteredItems = regexFilter();
+    const fuzzyPattern = search.split("").join(".*");
+    const regex = new RegExp(`.*${fuzzyPattern}.*`, "i");
+    return (foodItems || []).filter((item) => regex.test(item.name));
+  }, [search, foodItems]);
 
-    return (
-        <div>
-            <div className="cardspage">
-                <div className='cardpageheader'>
-                    <Navbar />
-                </div>
-                <div className="search-place">
-                    <img className="HeaderSearchImg" src="../Images/search.png" alt="" />
-                    <input 
-                        type="search" 
-                        className='HeaderSearchInput' 
-                        placeholder="search for restaurant, cuisine or a dish" 
-                        value={search} 
-                        onChange={(e) => setSearch(e.target.value)} 
-                    />
-                </div>
-                {loading ? (
-                    <div className="DataLoading foodcardloader">
-                        <h2>Data is loading!</h2>
-                        <div className="loader"></div>
-                    </div>
-                ) : (
-                    <div className="container cardmain">
-                        {foodCat.length > 0 ? foodCat.map((data) => (
-                            <div className='row mb-3 a1 foodcardpgemain' key={data._id}>
-                                <div className='fs-3 m-3 a2'>
-                                    <div className="CategoryName">
-                                        {data.CategoryName}
-                                    </div>
-                                </div>
-                                {filteredItems.length > 0 ? filteredItems.filter((item) => item.CategoryName === data.CategoryName).map((filterItem) => (
-                                    <div key={filterItem._id} className='ankit cardData col-12 col-md-6 col-lg-4 b1'>
-                                        <Newcard foodItems={filterItem} options={filterItem.options[0]} />
-                                    </div>
-                                )) : <div>no data is found</div>}
-                            </div>
-                        )) : <div>no data</div>}
-                    </div>
-                )}
-                <div className="Bfooter">
-                    {/* <Footer /> */}
-                </div>
-            </div>
+  const filteredItems = regexFilter();
+
+  // Handler for category selection
+  const handleCategoryClick = (categoryName) => {
+    setActiveCategory(categoryName);
+  };
+
+  return (
+    <div className="food-menu">
+      <div className="food-menu-header">
+        <Navbar />
+
+        <div className="search-container">
+          <div className="search-box">
+            <img
+              className="search-icon"
+              src="../Images/search.png"
+              alt="Search"
+            />
+            <input
+              type="search"
+              className="search-input"
+              placeholder="Search for restaurant, cuisine or a dish"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
         </div>
-    );
+
+        {/* Category tabs */}
+        {!loading && foodCat.length > 0 && (
+          <div className="category-tabs">
+            {foodCat.map((category) => (
+              <button
+                key={category._id}
+                className={`category-tab ${
+                  activeCategory === category.CategoryName ? "active" : ""
+                }`}
+                onClick={() => handleCategoryClick(category.CategoryName)}
+              >
+                {category.CategoryName}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {loading ? (
+        <div className="loading-container">
+          <div className="loader-ring"></div>
+          <h2>Loading delicious food...</h2>
+        </div>
+      ) : (
+        <div className="food-menu-content">
+          {foodCat.length > 0 ? (
+            <div className="food-categories">
+              {activeCategory && (
+                <div className="food-category" key={activeCategory}>
+                  <h2 className="category-title">{activeCategory}</h2>
+
+                  <div className="food-items-grid">
+                    {filteredItems.length > 0 ? (
+                      filteredItems
+                        .filter((item) => item.CategoryName === activeCategory)
+                        .map((filterItem) => (
+                          <div key={filterItem._id} className="food-item-card">
+                            <Newcard
+                              foodItems={filterItem}
+                              options={filterItem.options[0]}
+                            />
+                          </div>
+                        ))
+                    ) : (
+                      <div className="no-results">
+                        <div className="no-results-icon">🍽️</div>
+                        <p>No dishes found matching your search</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="no-data">
+              <div className="no-data-icon">📋</div>
+              <p>Our menu is currently unavailable</p>
+              <p>Please check back later</p>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 };
 
-export default Foodcards;
+export default FoodMenu;
