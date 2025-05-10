@@ -4,7 +4,7 @@ import Navbar from "../Component/Navbar";
 import "../Css/RestaurentOrdersPage.css";
 import RestaurentOrdersPageCard from "./components/RestaurentOrders/RestaurentOrdersPageCard";
 
-const RestOrder = () => {
+const RestaurentOrders = () => {
   const [data, setData] = useState([]);
   const [ordersByDate, setOrdersByDate] = useState(new Map());
   const [loading, setLoading] = useState(true);
@@ -117,4 +117,4 @@ const RestOrder = () => {
   );
 };
 
-export default memo(RestOrder);
+export default memo(RestaurentOrders);

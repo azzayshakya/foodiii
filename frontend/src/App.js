@@ -1,15 +1,13 @@
 import "./App.css";
 import Home from "./Screens/Home";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Login from "./Screens/Login";
-import Signup from "./Screens/Signup";
-import Foodcards from "./Screens/Foodcards";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Screens/auth/Login";
+import Signup from "./Screens/auth/Signup";
+import Foodcards from "./Screens/FoodMenuPage";
 import { CartProvider } from "./Component/ContextReducer";
-import RagisterResturent from "./Screens/RagisterResturent";
-import RestOrder from "./Screens/RestOrder";
 import MyOrders from "./Screens/MyOrders";
-// import BottomHeader from './Component/BottomHeader';
-// import YourOrder from './Screens/YourOrder'
+import YourRestaurent from "./Screens/auth/YourRestaurent";
+import RestaurentOrders from "./Screens/RestaurentOrders";
 
 function App() {
   return (
@@ -18,19 +16,12 @@ function App() {
         <div>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            {/* <Route exact path ="/BottomHeader" element={<BottomHeader/>}/> */}
-
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/Signup" element={<Signup />} />
-            <Route
-              exact
-              path="/RagisterResturent"
-              element={<RagisterResturent />}
-            />
-            <Route exact path="/RestOrder" element={<RestOrder />} />
+            <Route exact path="/RagisterResturent" element={<YourRestaurent />}/>
+            <Route exact path="/RestOrder" element={<RestaurentOrders />} />
             <Route exact path="/foodcards" element={<Foodcards />} />
             <Route exact path="/myOrder" element={<MyOrders />} />
-            {/* <Route exact path ="/AzayOrder" element={<YourOrder/>}/> */}
           </Routes>
         </div>
       </Router>
