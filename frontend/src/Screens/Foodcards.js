@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import css from '../Css/Foodcards.css';
 import Footer from '../Component/Footer';
 import Newcard from '../Component/Newcard';
-import Header from '../Component/Header';
 import { Link } from 'react-router-dom';
+import Navbar from '../Component/Navbar';
 
 const Foodcards = () => {
     const [search, setSearch] = useState("");
@@ -59,7 +59,7 @@ const Foodcards = () => {
         <div>
             <div className="cardspage">
                 <div className='cardpageheader'>
-                    <Header />
+                    <Navbar />
                 </div>
                 <div className="search-place">
                     <img className="HeaderSearchImg" src="../Images/search.png" alt="" />

@@ -14,7 +14,7 @@ import { CartProvider } from './Component/ContextReducer';
 import MyOrder from './Screens/MyOrder';
 import RagisterResturent from './Screens/RagisterResturent';
 import RestOrder from './Screens/RestOrder';
-import BottomHeader from './Component/BottomHeader';
+// import BottomHeader from './Component/BottomHeader';
 // import YourOrder from './Screens/YourOrder'
 
 
@@ -26,7 +26,7 @@ function App() {
       <Routes>
 
         <Route exact path ="/" element={<Home/>}/>
-        <Route exact path ="/BottomHeader" element={<BottomHeader/>}/>
+        {/* <Route exact path ="/BottomHeader" element={<BottomHeader/>}/> */}
 
 
         <Route exact path ="/login" element={<Login/>}/>

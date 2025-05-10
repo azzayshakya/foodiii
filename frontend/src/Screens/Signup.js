@@ -3,7 +3,6 @@ import '../Css/Signup.css';
 import Footer from '../Component/Footer';
 import Navbar from '../Component/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
-import Header from '../Component/Header';
 import '../Css/Loader.css';
 
 const Signup = () => {
@@ -77,7 +76,7 @@ const Signup = () => {
   return (
     <div className='loginpagemaincontainer'>
       <div>
-        <Header />
+        <Navbar />
       </div>
       <div className="main">
         <div className="sign_up_form_main_container login_form_container">

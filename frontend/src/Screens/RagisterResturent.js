@@ -4,7 +4,6 @@ import Navbar from '../Component/Navbar';
 import Css from '../Css/Login.css'
 import {} from '../Css/Loader.css'
 import { Link, useNavigate } from 'react-router-dom';
-import Header from '../Component/Header';
 
 const Login = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -59,7 +58,7 @@ const Login = () => {
     <div>
       <div className='loginpagemaincontainer'>
         <div>
-          <Header />
+          <Navbar />
         </div>
 
         <div className="main">    

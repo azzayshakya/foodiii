@@ -339,3 +339,78 @@ li{
      }
   
  }
+
+ .icon {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4757;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links li {
+    list-style: none;
+    position: relative;
+}
+
+.toglebutton button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.togglenavbar {
+    background-color: #222;
+    padding: 10px 20px;
+}
+
+.togglenavbar ol {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.icon {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4757;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links li {
+    list-style: none;
+    position: relative;
+}
+
+.toglebutton button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.togglenavbar {
+    background-color: #222;
+    padding: 10px 20px;
+}
+
+.togglenavbar ol {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

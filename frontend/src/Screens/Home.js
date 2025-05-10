@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import orderActions from '../store/order/orderActions';
-import BottomHeader from '../Component/BottomHeader';
+import BottomHeader from '../Component/HeroSection';
 import {} from '../Css/Header.css'
+import HeroSection from '../Component/HeroSection';
 
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
 
     return( <div  className='homemain'>
       
-        <BottomHeader/>
+        <HeroSection/>
        
 
 

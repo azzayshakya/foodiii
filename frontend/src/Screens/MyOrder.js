@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SingleOrder from './SingleOrder';
-import Header from '../Component/Header';
 import Css from '../Css/SingleOrder.css';
 import {} from '../Css/myorderpage.css';
 import { useCart } from '../Component/ContextReducer';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Component/Navbar';
 // import fetchWithAuth from "../Component/authApi";
 // import useAuthApi from "../Component/authApi";
 const MyOrder = () => {
@@ -75,7 +75,7 @@ const MyOrder = () => {
 
     return (
         <div className='myOrdersPageMain'>
-            <Header />
+            <Navbar />
             {loading ? (
                 <div className="DataLoading">
                     <h2>Data is loading !</h2>
