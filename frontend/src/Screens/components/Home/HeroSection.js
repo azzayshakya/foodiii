@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import "../../../Css/HeroSection.css";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { TbHandClick } from "react-icons/tb";
-import "../../../Css/HeroSection.css";
+import Navbar from "../../../Component/Navbar";
 
-
-import Navbar from "../../../Component/Navbar"
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [fadeIn, setFadeIn] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
+  const sliderRef = useRef(null);
+  const autoplayTimerRef = useRef(null);
 
   const heroImages = [
     "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -24,57 +25,102 @@ const HeroSection = () => {
     }, 500);
   }, []);
 
-  useEffect(() => {
-    const imageInterval = setInterval(() => {
-      setFadeIn(false);
+  const goToSlide = (index) => {
+    if (isAnimating || index === currentImageIndex) return;
 
-      setTimeout(() => {
-        setCurrentImageIndex(
-          (prevIndex) => (prevIndex + 1) % heroImages.length
-        );
-        setTimeout(() => {
-          setFadeIn(true);
-        }, 50);
-      }, 500);
+    setIsAnimating(true);
+
+    const currentSlider = sliderRef.current;
+    const newSlide = document.createElement("div");
+    newSlide.className = "hero-slide slide-enter-right";
+    newSlide.style.backgroundImage = `url(${heroImages[index]})`;
+
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+    newSlide.appendChild(overlay);
+
+    currentSlider.appendChild(newSlide);
+
+    setTimeout(() => {
+      newSlide.classList.remove("slide-enter-right");
+      document
+        .querySelector(".hero-slide:first-child")
+        .classList.add("slide-exit-left");
+    }, 50);
+
+    setTimeout(() => {
+      currentSlider.removeChild(
+        document.querySelector(".hero-slide:first-child")
+      );
+      newSlide.classList.remove("slide-enter-right");
+      setCurrentImageIndex(index);
+      setIsAnimating(false);
+    }, 800);
+  };
+
+  useEffect(() => {
+    autoplayTimerRef.current = setInterval(() => {
+      const nextIndex = (currentImageIndex + 1) % heroImages.length;
+      goToSlide(nextIndex);
     }, 5000);
 
-    return () => clearInterval(imageInterval);
-  }, []);
+    return () => {
+      if (autoplayTimerRef.current) {
+        clearInterval(autoplayTimerRef.current);
+      }
+    };
+  }, [currentImageIndex, heroImages.length]);
+
+  const handleIndicatorClick = (index) => {
+    if (autoplayTimerRef.current) {
+      clearInterval(autoplayTimerRef.current);
+    }
+    goToSlide(index);
+
+    autoplayTimerRef.current = setInterval(() => {
+      const nextIndex = (currentImageIndex + 1) % heroImages.length;
+      goToSlide(nextIndex);
+    }, 5000);
+  };
 
   return (
     <div className="hero-section">
-      <div
-        className={`hero-background ${fadeIn ? "fade-in" : "fade-out"}`}
-        style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
-      >
-        <div className="overlay"></div>
-        <div className="hero-content">
-          <div className="header-container">
-            <Navbar />
-          </div>
+      <div className="hero-slider" ref={sliderRef}>
+        <div
+          className="hero-slide"
+          style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
+        >
+          <div className="overlay"></div>
+        </div>
+      </div>
 
-          <div className="text-content">
-            <h1 className={`hero-title ${textVisible ? "text-visible" : ""}`}>
-              Foodiii
-            </h1>
-            <h3
-              className={`hero-subtitle ${textVisible ? "text-visible" : ""}`}
-            >
-              Delicious food delivered right to your doorstep
-            </h3>
-            <p className={`hero-tagline ${textVisible ? "text-visible" : ""}`}>
-              Fast • Fresh • Flavorful
-            </p>
-            <div className={`hero-button ${textVisible ? "text-visible" : ""}`}>
-              <Link to="/foodCards">
-                <button>
-                  VIEW MENU{" "}
-                  <span>
-                    <TbHandClick />
-                  </span>
-                </button>
-              </Link>
-            </div>
+      <div className="navbar-placeholder">
+        <Navbar />
+      </div>
+
+      <div className="hero-content">
+        <div className={`text-container ${textVisible ? "text-visible" : ""}`}>
+          <h1 className="hero-title">
+            <span className="title-text">Foodiii</span>
+            <span className="title-underline"></span>
+          </h1>
+
+          <h3 className="hero-subtitle">
+            Delicious food delivered right to your doorstep
+          </h3>
+
+          <p className="hero-tagline">Fast • Fresh • Flavorful</p>
+
+          <div className="hero-button">
+            <Link to="/foodCards">
+              <button className="cta-button">
+                VIEW MENU{" "}
+                <span className="icon">
+                  <TbHandClick />
+                </span>
+                <span className="button-pulse"></span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -86,9 +132,14 @@ const HeroSection = () => {
             className={`indicator-dot ${
               index === currentImageIndex ? "active" : ""
             }`}
-            onClick={() => setCurrentImageIndex(index)}
+            onClick={() => handleIndicatorClick(index)}
           />
         ))}
+      </div>
+
+      <div className="scroll-indicator">
+        <span className="scroll-text">SCROLL</span>
+        <div className="scroll-arrow"></div>
       </div>
     </div>
   );
