@@ -18,7 +18,7 @@ const YourRestaurent = () => {
     setButton(false);
 
     try {
-      const response = await fetch("http://localhost:7000/api/authenticateResturent", {
+      const response = await fetch("https://foodiii.onrender.com/api/authenticateResturent", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
