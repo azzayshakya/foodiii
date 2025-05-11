@@ -50,7 +50,6 @@ router.post(
   }
 );
 
-
 router.post(
   "/loginuser",
   [body("email").isEmail(), body("password", "Incorrect password")],
@@ -109,7 +108,8 @@ router.get("/getOrderOfMyresturant", async (req, res) => {
 
 router.post("/authenticateResturent", async (req, res) => {
   try {
-    const { resturentId, password } = req.body;
+    const { resturentId, password, MobileNo } = req.body;
+    console.log(req.body);
 
     const token = req.headers.authorization?.split(" ")[1];
     if (token) {
@@ -131,8 +131,7 @@ router.post("/authenticateResturent", async (req, res) => {
       });
     }
 
-    const isMatch = await bcrypt.compare(password, data.password);
-    if (!isMatch) {
+    if (password !== data.password) {
       return res.status(401).json({
         success: false,
         message: "Invalid credentials",
