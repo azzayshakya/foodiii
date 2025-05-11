@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
-import "../../Css/Auth.css";
+import "../styles/Auth.css";
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -56,7 +57,8 @@ const Signup = () => {
       const json = await response.json();
 
       if (!json.success) {
-        alert("Enter valid credentials");
+        console.log(json.message)
+        alert(json.message);
       } else {
         navigate("/login");
       }

@@ -21,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../Images/hero-slider-2.jpg") center center/cover no-repeat;
+  background: url("../../Images/hero-slider-2.jpg") center center/cover no-repeat;
   z-index: -1;
 }
 
