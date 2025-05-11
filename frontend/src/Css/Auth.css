@@ -26,6 +26,7 @@
 }
 
 .auth-card {
+  margin-top: 50px;
   width: 100%;
   max-width: 450px;
   background-color: rgba(255, 255, 255, 0.95);

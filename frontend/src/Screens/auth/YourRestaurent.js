@@ -4,20 +4,18 @@ import Navbar from '../../Component/Navbar';
 import '../../Css/Auth.css';
 
 const YourRestaurent = () => {
-  const [showPopup, setShowPopup] = useState(false);
   const [button, setButton] = useState(true);
   const [credentials, setCredentials] = useState({ 
     resturentId: "", 
     MobileNo: "", 
     password: "" 
   });
-  
+
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButton(false);
-    setShowPopup(true);
 
     try {
       const response = await fetch("https://foodiii.onrender.com/api/authenticateResturent", {
@@ -31,21 +29,18 @@ const YourRestaurent = () => {
       const json = await response.json();
 
       if (!json.success) {
-        setShowPopup(false);
         setButton(true);
         alert("Enter valid credentials");
       } else {
-        setShowPopup(false);
-        setButton(true);
         localStorage.setItem("resturentId", credentials.resturentId);
         localStorage.setItem("authToken2", json.authToken2);
         navigate("/");
       }
     } catch (error) {
       console.error('Error during authentication:', error);
-      setShowPopup(false);
-      setButton(true);
       alert("An error occurred. Please try again.");
+    } finally {
+      setButton(true);
     }
   }
 
@@ -107,20 +102,18 @@ const YourRestaurent = () => {
               />
             </div>
 
-            {showPopup ? (
-              <div className="loading-container">
-                <h3>Please Wait!</h3>
-                <div className="loading-spinner"></div>
-              </div>
-            ) : (
-              <button 
-                type="submit" 
-                className="auth-button"
-                disabled={!button}
-              >
-                Login
-              </button>
-            )}
+            <button 
+              type="submit" 
+              className="auth-button"
+              disabled={!button}
+            >
+              {button ? "Login" : (
+                <>
+                  <i className="fas fa-spinner fa-spin" style={{ marginRight: "8px" }}></i>
+                  Logging in...
+                </>
+              )}
+            </button>
           </form>
           
           <div className="auth-footer">
