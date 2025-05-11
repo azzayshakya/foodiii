@@ -1,4 +1,4 @@
-import "../../../Css/MyOrderPage.css";
+import "../../styles/MyOrderPage.css";
 
 const MyOrdersPageCard = ({ item }) => {
   const getStatusClass = () => {

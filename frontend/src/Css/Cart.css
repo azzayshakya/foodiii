@@ -223,7 +223,6 @@
     opacity: 1;
 }
 
-/* Responsive */
 @media (max-width: 576px) {
     .cart-container {
         border-radius: 0;

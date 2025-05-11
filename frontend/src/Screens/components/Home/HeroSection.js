@@ -1,4 +1,4 @@
-import "../../../Css/HeroSection.css";
+import "../../styles/HeroSection.css";
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { TbHandClick } from "react-icons/tb";

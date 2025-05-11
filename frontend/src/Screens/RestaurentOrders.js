@@ -1,7 +1,7 @@
 // import "../Css/ragisterresturentpage.css";
 import React, { useEffect, useState, memo } from "react";
 import Navbar from "../Component/Navbar";
-import "../Css/RestaurentOrdersPage.css";
+import "./styles/RestaurentOrdersPage.css";
 import RestaurentOrdersPageCard from "./components/RestaurentOrders/RestaurentOrdersPageCard";
 
 const RestaurentOrders = () => {

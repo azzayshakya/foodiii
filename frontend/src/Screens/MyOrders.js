@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Component/Navbar";
-import "../Css/MyOrderPage.css";
+import "./styles/MyOrderPage.css";
 import MyOrdersPageCard from "./components/myOrdersPage/MyOrdersPageCard";
 
 const MyOrders = () => {

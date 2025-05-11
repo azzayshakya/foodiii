@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-import "../../../Css/RestaurentOrdersPage.css";
+import "../../styles/RestaurentOrdersPage.css";
 
 const RestaurentOrdersPageCard = ({ item }) => {
   const [selectedState, setSelectedState] = useState("");
