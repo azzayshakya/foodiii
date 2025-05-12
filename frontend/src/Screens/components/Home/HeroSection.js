@@ -112,7 +112,7 @@ const HeroSection = () => {
           <p className="hero-tagline">Fast • Fresh • Flavorful</p>
 
           <div className="hero-button">
-            <Link to="/foodCards">
+            <Link to="/menu">
               <button className="cta-button">
                 VIEW MENU{" "}
                 <span className="icon">

@@ -8,6 +8,7 @@ import { CartProvider } from "./Component/ContextReducer";
 import MyOrders from "./Screens/MyOrders";
 import YourRestaurent from "./Screens/auth/YourRestaurent";
 import RestaurentOrders from "./Screens/RestaurentOrders";
+import FoodMenu from "./Screens/FoodMenuPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route exact path="/RestOrder" element={<RestaurentOrders />} />
             <Route exact path="/foodcards" element={<Foodcards />} />
             <Route exact path="/myOrder" element={<MyOrders />} />
+            <Route exact path="/menu" element={<FoodMenu />} />
+
           </Routes>
         </div>
       </Router>

@@ -8,7 +8,7 @@ import { useCart } from "./ContextReducer";
 import "../Css/Header.css";
 
 import { useState, useEffect } from "react";
-
+import { MdRestaurantMenu } from "react-icons/md";
 import {
   FaBars,
   FaHome,
@@ -65,6 +65,10 @@ const Navbar = () => {
             <Link className="nav-link" to="/">
               <FaHome className="nav-icon" />
               <span>Home</span>
+            </Link>
+            <Link className="nav-link" to="/menu">
+              <MdRestaurantMenu className="nav-icon" />
+              <span>Menu</span>
             </Link>
 
             {!localStorage.getItem("authToken2") ? (
