@@ -124,23 +124,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      <div className="slider-indicators">
-        {heroImages.map((_, index) => (
-          <div
-            key={index}
-            className={`indicator-dot ${
-              index === currentImageIndex ? "active" : ""
-            }`}
-            onClick={() => handleIndicatorClick(index)}
-          />
-        ))}
-      </div>
-
-      <div className="scroll-indicator">
-        <span className="scroll-text">SCROLL</span>
-        <div className="scroll-arrow"></div>
-      </div>
     </div>
   );
 };

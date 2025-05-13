@@ -116,9 +116,9 @@ const YourRestaurent = () => {
             </button>
           </form>
           
-          <div className="auth-footer">
+          {/* <div className="auth-footer">
             <p>Don't have an account? <Link to="/Signup">Sign Up</Link></p>
-          </div>
+          </div> */}
         </div>
       </div>
       

@@ -28,9 +28,9 @@ const FoodMenu = () => {
       setLoading(false);
 
       if (data && data.length >= 2) {
-        setFoodItems(data[0] || []); // Use an empty array as fallback
-        setFoodCat(data[1] || []); // Use an empty array as fallback
-        // Set first category as active by default if categories exist
+        setFoodItems(data[0] || []); 
+        setFoodCat(data[1] || []); 
+        
         if (data[1] && data[1].length > 0) {
           setActiveCategory(data[1][0].CategoryName);
         }
@@ -57,7 +57,6 @@ const FoodMenu = () => {
 
   const filteredItems = regexFilter();
 
-  // Handler for category selection
   const handleCategoryClick = (categoryName) => {
     setActiveCategory(categoryName);
   };
@@ -77,14 +76,13 @@ const FoodMenu = () => {
             <input
               type="search"
               className="search-input"
-              placeholder="Search for restaurant, cuisine or a dish"
+              placeholder="Search for a dish"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
 
-        {/* Category tabs */}
         {!loading && foodCat.length > 0 && (
           <div className="category-tabs">
             {foodCat.map((category) => (
