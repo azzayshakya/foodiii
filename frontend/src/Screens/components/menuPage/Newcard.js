@@ -51,9 +51,10 @@ const MenuPageCard = (props) => {
         )}
 
         <div className="food-card-options">
-          <div className="quantity-selector">
+          <div className="option-group">
+            <label className="option-label">Qty</label>
             <select
-              className="quantity-select"
+              className="custom-select"
               onChange={(e) => setQty(e.target.value)}
               value={qty}
             >
@@ -65,9 +66,10 @@ const MenuPageCard = (props) => {
             </select>
           </div>
 
-          <div className="size-selector">
+          <div className="option-group">
+            <label className="option-label">Size</label>
             <select
-              className="size-select"
+              className="custom-select"
               ref={priceRef}
               onChange={(e) => setSize(e.target.value)}
               value={size}

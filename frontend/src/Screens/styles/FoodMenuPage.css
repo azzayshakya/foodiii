@@ -188,6 +188,54 @@
   margin-bottom: 10px;
 }
 
+.food-card-options {
+  /* border: 2px red solid; */
+
+}
+
+.food-card-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.food-card-options .option-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.food-card-options .option-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.food-card-options .custom-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.food-card-options .custom-select:hover {
+  border-color: #ff4757;
+  box-shadow: 0 4px 10px rgba(255, 71, 87, 0.2);
+}
+
+.food-card-options .custom-select:focus {
+  outline: none;
+  border-color: #ff4757;
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+}
+
+
 .food-card-rating {
   display: flex;
   align-items: center;
